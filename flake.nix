@@ -43,10 +43,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    rhodium-alloys = {
-      url = "github:pabloagn/alloys.rhf";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -63,7 +59,6 @@
       zen-browser,
       kanso-nvim,
       chiaroscuro,
-      rhodium-alloys,
       disko,
     }@inputs:
     let
@@ -213,8 +208,8 @@
                   targetTheme = targetTheme; # TODO: This is temporary
                   chiaroscuroTheme = chiaroscuroTheme; # TODO: This is temporary
                   inherit userPreferences userExtras;
-                  fishPlugins = rhodium-alloys.fish;
-                  yaziPlugins = rhodium-alloys.yazi;
+                  #  fishPlugins = rhodium-alloys.fish;
+                  #  yaziPlugins = rhodium-alloys.yazi;
                   inherit (rhodiumLib.generators.moduleGenerators) mkModule mkPkgModule;
                 };
               };
@@ -253,8 +248,8 @@
                   theme = selectedTheme;
                   targetTheme = targetTheme; # TODO: This is temporary
                   inherit userPreferences userExtras;
-                  fishPlugins = rhodium-alloys.fish;
-                  yaziPlugins = rhodium-alloys.yazi;
+                  #   fishPlugins = rhodium-alloys.fish;
+                  #  yaziPlugins = rhodium-alloys.yazi;
                 };
               };
             }
@@ -284,8 +279,8 @@
             theme = selectedTheme;
             targetTheme = targetTheme; # TODO: This is temporary
             inherit userPreferences userExtras;
-            fishPlugins = rhodium-alloys.fish;
-            yaziPlugins = rhodium-alloys.yazi;
+            #     fishPlugins = rhodium-alloys.fish;
+            #      yaziPlugins = rhodium-alloys.yazi;
           };
         };
       };

@@ -1,4 +1,4 @@
-{ fishPlugins, ... }:
+{ ... }:
 {
   # TODO: Fix this
   programs.man.generateCaches = false;
@@ -9,6 +9,6 @@
 
   programs.fish = {
     enable = true;
-    plugins = fishPlugins;
+    #   plugins = fishPlugins;
   };
 }
