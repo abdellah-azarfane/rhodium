@@ -45,7 +45,7 @@
 
     rhodium-alloys = {
       url = "github:pabloagn/alloys.rhf";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
