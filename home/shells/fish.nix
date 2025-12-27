@@ -8,7 +8,7 @@
   ];
 
   programs.fish = {
-    enable = true;
+    enable = false;
     package = pkgs-unstable.fish;
     #   plugins = fishPlugins;
   };
