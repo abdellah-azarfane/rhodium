@@ -1,8 +1,8 @@
 {
   apps = {
     # Core
-    shell = "fish";
-    shelAlt = "zsh";
+    shell = "zsh";
+    shelAlt = "nu";
     terminal = "kitty";
     terminalAlt = "ghostty";
     browser = "firefox";
