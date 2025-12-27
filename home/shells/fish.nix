@@ -1,4 +1,4 @@
-{ ... }:
+{ fishPlugins, pkgs-unstable, ... }:
 {
   # TODO: Fix this
   programs.man.generateCaches = false;
@@ -9,6 +9,7 @@
 
   programs.fish = {
     enable = true;
-    #   plugins = fishPlugins;
+    package = pkgs-unstable.fish;
+    plugins = fishPlugins;
   };
 }
