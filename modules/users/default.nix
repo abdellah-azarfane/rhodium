@@ -19,7 +19,7 @@ in
     isNormalUser = user_001_data.isNormalUser or true;
     description = user_001_data.fullName;
     extraGroups = user_001_data.extraGroups;
-    shell = pkgs.fish;
+    shell = pkgs.zsh;
     home = "/home/${user_001_data.username}";
     # openssh = {
     #   authorizedKeys.keys = [

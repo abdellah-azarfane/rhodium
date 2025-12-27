@@ -422,15 +422,17 @@
       icon = "zsh";
       description = "Zsh Shell";
     };
-    fish-shell = {
-      binary = "kitty";
-      args = [
-        "-e"
-        "fish"
-      ];
-      icon = "fish";
-      description = "Fish Shell";
-    };
+    /*
+      fish-shell = {
+        binary = "kitty";
+        args = [
+          "-e"
+          "fish"
+        ];
+        icon = "fish";
+        description = "Fish Shell";
+      };
+    */
     nu-shell = {
       binary = "kitty";
       args = [
