@@ -24,6 +24,12 @@
   vim = "nvim";
   vi = "nvim";
   v = "nvim";
+ 
+ # --- Launch Apps With Nvidia
+  blendernv = "LD_LIBRARY_PATH=/run/opengl-driver/lib blender";
+  obsnv= "LD_LIBRARY_PATH=/run/opengl-driver/lib obs";
+  kdenlivenv = " LD_LIBRARY_PATH=/run/opengl-driver/lib kdenlive";
+  darktablenv = "LD_LIBRARY_PATH=/run/opengl-driver/lib darktable";
 
   # --- File Operations ---
   cp = "cp -iv"; # Interactive & verbose copy

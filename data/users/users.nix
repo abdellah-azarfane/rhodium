@@ -1,9 +1,9 @@
 {
   users = {
     user_001 = {
-      username = "pabloagn";
-      fullName = "Pablo Aguirre";
-      emailMain = "pablo.aguirre@protonmail.com";
+      username = "zayron";
+      fullName = "Abdellah Azarfane";
+      emailMain = "abdellahazarfane@proton.me";
       extraGroups = [
         "wheel"
         "networkmanager"
@@ -13,7 +13,7 @@
         "video"
       ]; # NOTE: uinput required by kmonad
       isNormalUser = true;
-      shell = "fish";
+      shell = "zsh";
     };
   };
 }

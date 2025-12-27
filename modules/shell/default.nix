@@ -5,6 +5,7 @@
     bash
     fish
     nushell
+    xonsh
   ];
 
   programs = {

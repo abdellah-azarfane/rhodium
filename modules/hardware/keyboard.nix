@@ -1,3 +1,4 @@
+
 { pkgs, ... }:
 # TODO: Dynamic
 {
@@ -5,26 +6,31 @@
     xorg.xev # xorg key registry
   ];
 
-  time.timeZone = "Europe/London"; # Time zone
-  i18n.defaultLocale = "en_GB.UTF-8"; # Locale
-
-  # Additional properties
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_GB.UTF-8";
-    LC_IDENTIFICATION = "en_GB.UTF-8";
-    LC_MEASUREMENT = "en_GB.UTF-8";
-    LC_MONETARY = "en_GB.UTF-8";
-    LC_NAME = "en_GB.UTF-8";
-    LC_NUMERIC = "en_GB.UTF-8";
-    LC_PAPER = "en_GB.UTF-8";
-    LC_TELEPHONE = "en_GB.UTF-8";
-    LC_TIME = "en_GB.UTF-8";
+  time.timeZone = "Africa/Casablanca"; # Time zone
+  # Select internationalisation properties.
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    supportedLocales = [
+      "en_US.UTF-8/UTF-8"
+      "ar_MA.UTF-8/UTF-8"
+      "fr_FR.UTF-8/UTF-8"
+    ];
+    extraLocaleSettings = {
+      LC_ADDRESS = "ar_MA.UTF-8";
+      LC_IDENTIFICATION = "ar_MA.UTF-8";
+      LC_MEASUREMENT = "ar_MA.UTF-8";
+      LC_MONETARY = "ar_MA.UTF-8";
+      LC_NAME = "ar_MA.UTF-8";
+      LC_NUMERIC = "ar_MA.UTF-8";
+      LC_PAPER = "ar_MA.UTF-8";
+      LC_TELEPHONE = "ar_MA.UTF-8";
+      LC_TIME = "ar_MA.UTF-8";
+    };
   };
-
-  console.keyMap = "uk"; # Default console Keymap
+  console.keyMap = "us"; # Default console Keymap
 
   services.xserver.xkb = {
-    layout = "gb";
+    layout = "us";
     variant = "";
   };
 

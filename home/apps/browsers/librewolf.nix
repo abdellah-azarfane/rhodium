@@ -1,6 +1,6 @@
 { ... }:
 {
   programs.librewolf = {
-    enable = false;
+    enable = true;
   };
 }

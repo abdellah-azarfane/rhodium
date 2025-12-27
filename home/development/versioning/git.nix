@@ -15,13 +15,15 @@ in
 
   programs.git = {
     enable = true;
-    userName = userfullName;
-    userEmail = userEmail;
-
+  settings = {
+      user = {
+        name  = userfullName;
+        email = userEmail;
+      };
     extraConfig = {
       init.defaultBranch = "main";
+     };
     };
-
     ignores = [
       # Editor files
       "*~"
@@ -48,15 +50,16 @@ in
       "*.bak"
       ".cache/"
     ];
+  };
 
-    delta = {
-      enable = true; # View file diffs
-    };
-
-    riff = {
+  programs.riff = {
       enable = false; # View file diffs. Either this or delta.
     };
-  };
+
+  programs.delta = {
+      enable = true; # View file diffs
+      enableGitIntegration = true;
+    };
 
   programs.gh = {
     enable = true; # GitHub CLI Tool

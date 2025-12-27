@@ -4,7 +4,7 @@
   # -------------------------------------------------------------------------------
   # # Declaratively create the secret file.
   # environment.etc."nixos/secrets/tailscale-authkey" = {
-  #   source = "/home/pabloagn/alexandria-tailscale-authkey";
+  #   source = "/home/zayron/alexandria-tailscale-authkey";
   #   mode = "0400";
   #   user = "root";
   #   group = "root";

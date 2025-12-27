@@ -1,13 +1,13 @@
 {
   hosts = {
     host_001 = {
-      hostname = "justine";
-      description = "Justine Host";
+      hostname = "laptop";
+      description = "main Host";
       mainMonitor = {
         monitorID = "eDP-1";
-        monitorResolution = "";
-        monitorRefreshRate = "120";
-        monitorScalingFactor = "1.5";
+        monitorResolution = "1920x1080";
+        monitorRefreshRate = "144";
+        monitorScalingFactor = "1.0";
       };
       defaultLocale = "";
     };

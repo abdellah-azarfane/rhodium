@@ -87,6 +87,6 @@
   home = {
     username = userData.user_001.username;
     homeDirectory = "/home/${userData.user_001.username}";
-    stateVersion = "25.05";
+    stateVersion = "25.11";
   };
 }

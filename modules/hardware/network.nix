@@ -13,8 +13,9 @@
   # networking = {
   #   firewall.checkReversePath = false; # HACK: Required for VPN
   # };
-
+   # Network
   networking = {
+    networkmanager.enable = true;
     firewall.checkReversePath = lib.mkForce "loose"; # HACK: Required for VPN
   };
 }

@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   services.openssh = {
     enable = true;
@@ -10,7 +10,7 @@
       PubkeyAuthentication = true;
     };
   };
-
+  services.gnome.gcr-ssh-agent.enable = lib.mkForce false;
   programs.ssh = {
     startAgent = true;
   };

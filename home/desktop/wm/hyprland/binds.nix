@@ -42,7 +42,28 @@ in
       "$mainMod ALT, M, exec, ~/.local/bin/rofi-monitors.sh"
       # "$mainMod, ALT, W, exec, ~./local/bin/rofi-wallpaper.sh"
       # "$mainMod, ALT, S, exec, ~/.local/bin/utils-screenshot.sh" # Add an area arg
-
+      
+            # Special workspaces DMS & Noctalia
+      /*
+      "$mainMod, A, exec, dms ipc spotlight toggle"
+      "$mainMod, N, exec, dms ipc notifications toggle"
+      "$mainMod, Y, exec, dms ipc settings toggle"
+      "$mainMod CTRL, N, exec, dms ipc notepad toggle"
+      "$mainMod, P, exec, dms ipc powermenu toggle"
+      "$mainMod ALT, N, exec, dms ipc night toggle"
+     ////////////////////////////////////////////////////////////////////
+      "$mainMod, comma, exec, noctalia-shell ipc call settings toggle"
+      "$mainMod ALT, S, exec, noctalia-shell ipc call settings toggle"
+      "$mainMod SHIFT, K, exec, noctalia-shell ipc call controlCenter toggle"
+      "$mainMod, A, exec, noctalia-shell ipc call launcher toggle"
+      "$mainMod, N, exec, noctalia-shell ipc call notifications toggleHistory"
+      #"$mainMod, Y, exec, dms ipc settings toggle"
+      #"$mainMod CTRL, N, exec, dms ipc notepad togg"
+      "$mainMod, P, exec, noctalia-shell ipc call sessionMenu toggle"
+     # "$mainMod  Q, exec, noctalia-shell ipc call launcher calculator"
+      "$mainMod SHIFT, Q, exec, noctalia-shell ipc call calendar toggle"
+      "$mainMod SHIFT, H, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
+*/
       # Hyprpaper
       # ----------------------------------------
 
@@ -128,10 +149,11 @@ in
     ];
 
     bindel = [
-      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ ${preferredBehaviour.knobIncrement}-"
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ ${preferredBehaviour.knobIncrement}+"
-      ", XF86MonBrightnessDown, exec, brightnessctl set ${preferredBehaviour.knobIncrement}-"
-      ", XF86MonBrightnessUp, exec, brightnessctl set +${preferredBehaviour.knobIncrement}"
+        # speaker and mic volume control
+        " , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"
+        " , XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"
+        " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        " , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
 
     bindl = [
@@ -140,5 +162,29 @@ in
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPrev, exec, playerctl previous"
     ];
+
+    binde = [
+      # resize active
+      "SUPER_CTRL, left,  resizeactive, -20 0"
+      "SUPER_CTRL, right, resizeactive, 20 0"
+      "SUPER_CTRL, up,    resizeactive, 0 -20"
+      "SUPER_CTRL, down,  resizeactive, 0 20"
+
+      # move active (Floating Only)
+      "SUPER_ALT, left,  moveactive, -20 0"
+      "SUPER_ALT, right, moveactive, 20 0"
+      "SUPER_ALT, up,    moveactive, 0 -20"
+      "SUPER_ALT, down,  moveactive, 0 20"
+      "SUPER_ALT, equal, exec, hyprctl dispatch centerwindow;"
+
+      # display and keyboard brightness control
+      " , XF86MonBrightnessUp, exec, brightnessctl s +20%"
+      " , XF86MonBrightnessDown, exec, brightnessctl s 20%-"
+      " , XF86KbdBrightnessUp, exec, asusctl -n"
+      " , XF86KbdBrightnessDown, exec, asusctl -p"
+
+      # performance
+      " , XF86Launch4, exec, asusctl profile -n"
+      ];
   };
 }

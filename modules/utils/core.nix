@@ -38,7 +38,7 @@
     usbutils # lsusb
     evtest # Live-test keyboards
     libinput # Handle inputs in Wayland
-
+    parted # Partition management
     # --- Audio Tools ---
     alsa-utils # ALSA utilities
 

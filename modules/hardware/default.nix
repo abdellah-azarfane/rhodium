@@ -9,6 +9,7 @@
     ./network.nix
     ./printers.nix
     ./storage.nix
+    ./power.nix
     ./video.nix
   ];
 

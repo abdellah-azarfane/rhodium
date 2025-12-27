@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
+    ./audacity.nix
     ./csound.nix
     ./ncmpc.nix
     ./ncspot.nix
@@ -15,8 +16,6 @@
   ];
 
   home.packages = with pkgs; [
-    # audacious
-    # audacity
     clementine
     easyeffects # Equalizer for PipeWire
     helvum # GTK patchbay for PipeWire

@@ -31,7 +31,7 @@ in
   # NOTE: Required for devenv
   nix.settings.trusted-users = [
     "root"
-    "pabloagn"
+    "zayron"
   ];
 
   home-manager.backupFileExtension = "backup"; # HACK: Required since hm activation was sometimes faulty

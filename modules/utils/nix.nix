@@ -7,4 +7,7 @@
     nixfmt-rfc-style # Official formatter
     # nixpkgs-fmt # Formatter
   ];
+  nix.settings = {
+   download-buffer-size = 33554432; # 32 MiB
+ };
 }

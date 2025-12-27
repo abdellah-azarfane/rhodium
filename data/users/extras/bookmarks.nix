@@ -264,36 +264,9 @@ in
     };
     github = {
       profile = "personal";
-      url = "https://github.com/pabloagn?tab=repositories";
+      url = "https://github.com/abdellah-azarfane";
       description = "GitHub Repos";
       categories = [ categories.productivity ];
-    };
-    github-chiaroscuro = {
-      profile = "personal";
-      url = "https://github.com/pabloagn/chiaroscuro";
-      description = "GitHub Chiaroscuro";
-      categories = [
-        categories.productivity
-        categories.repositories
-      ];
-    };
-    github-phantom = {
-      profile = "personal";
-      url = "https://github.com/pabloagn/phantom";
-      description = "GitHub Phantom";
-      categories = [
-        categories.productivity
-        categories.repositories
-      ];
-    };
-    github-rhodium = {
-      profile = "personal";
-      url = "https://github.com/pabloagn/rhodium";
-      description = "GitHub Rhodium";
-      categories = [
-        categories.productivity
-        categories.repositories
-      ];
     };
     gnome-style-schemes = {
       profile = "personal";

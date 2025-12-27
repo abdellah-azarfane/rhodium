@@ -35,20 +35,21 @@ in
         force_zero_scaling = true; # Force GUI apps to behave
       };
 
-      input = {
-        kb_layout = "gb,us,es";
+       input = {
+        kb_layout = "us,fr,ara";
         kb_variant = "";
         kb_model = "";
         kb_options = "grp:win_space_toggle";
         kb_rules = "";
-        repeat_delay = keyboardDelay;
-        repeat_rate = keyboardRepeat;
+        repeat_delay = 250;
+        repeat_rate = 35;
         follow_mouse = 1;
         sensitivity = -0.3;
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
       };
+
 
       gestures = {
         workspace_swipe = true;

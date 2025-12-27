@@ -14,7 +14,7 @@
     ../../modules/users
     ../../modules/manager
     ../../modules/desktop
-    ../../modules/desktop/wm/niri/amd.nix
+    ../../modules/desktop/wm/hyprland/intel.nix
     ../../modules/integration
     ../../modules/virtualization
     ../../modules/virtualization/docker-amd.nix
@@ -23,18 +23,10 @@
     ../../modules/maintenance
     ../../modules/utils
     ../../modules/network
+    ./disko.nix
   ];
 
   # Base
-  # ---------------------------------
-  # Kernel version
-  # BUG: Latest Kernel has fundamental issues with ASUS BIOS
-  # causing it to not get past EFI Stubs on boot (ACPI issue most likely)
-  # The issue was bypassed by booting the machine connected to AC
-  # using the NORMAL USB-C port (not the high-speed one)
-  # For now, we're pinning the Kernel to the latest stable on this host.
-  # boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_6_12;
 
   # Host Configuration
   networking = {
@@ -62,10 +54,10 @@
   };
 
   # Garbage override
-  maintenance.garbageCollection = {
+  maintenance.nhClean = {
     enable = true;
-    schedule = "daily";
-    deleteOlderThan = "30d";
+    schedule = "daily"; # ou weekly
+    deleteOlderThan = "7d"; # supprime les vieilles générations
   };
 
   # Extra Args
@@ -74,5 +66,5 @@
     "nix-command"
     "flakes"
   ];
-  system.stateVersion = "24.05"; # NOTE: Original derivation
+  system.stateVersion = "25.11"; # NOTE: Original derivation
 }
