@@ -50,13 +50,6 @@ in
         };
       };
 
-
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_touch = true;
-        workspace_swipe_use_r = true;
-      };
-
       general = {
         "$mainMod" = "SUPER";
         layout = "dwindle";

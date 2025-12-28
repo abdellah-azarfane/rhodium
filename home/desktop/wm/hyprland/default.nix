@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./autostarts.nix
     ./base.nix
     ./animations.nix
     ./binds.nix
