@@ -48,11 +48,12 @@
       };
 
       # Binds
-   #   keybindings = {
-   #     select_next_entry = [
-   #       "down"
-   #       "ctrl-j"
-   #     ];
+      /*
+      keybindings = {
+        select_next_entry = [
+          "down"
+          "ctrl-j"
+        ];
         select_prev_entry = [
           "up"
           "ctrl-k"
@@ -65,6 +66,7 @@
           "ctrl-y"
         ];
       };
+      */
     };
   };
 
