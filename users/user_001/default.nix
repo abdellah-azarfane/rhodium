@@ -66,7 +66,7 @@
     rh-kmonad.enable = true;
     rh-mako.enable = false;
     rh-neovim-daemon.enable = false;
-    rh-swaybg.enable = true;
+    rh-swaybg.enable = false;
     rh-system-keyring.enable = true;
     rh-waybar.enable = true;
     rh-wlsunset.enable = false;
