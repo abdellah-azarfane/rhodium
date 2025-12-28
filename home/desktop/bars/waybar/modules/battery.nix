@@ -10,10 +10,10 @@
         critical = 15;
       };
       on-click-right = "$XDG_BIN_HOME/fuzzel/fuzzel-power.sh";
-      format = "Ω {capacity}%";
-      format-alt = "Ω {capacity}% {icon}";
-      format-charging = "{capacity}% 𝥽";
-      format-plugged = "{capacity}% 𝥽";
+      format = " {capacity}%";
+      format-alt = " {capacity}% {icon}";
+      format-charging = " {capacity}%";
+      format-plugged = " {capacity}%";
       format-icons = [
         "[⠀]"
         "[⢀]"
