@@ -22,6 +22,10 @@ let
   moduleMemory = import ./memory.nix;
   moduleNetworkWifiDl = import ./network-wifi-dl.nix;
   moduleNetworkWifiUl = import ./network-wifi-ul.nix;
+  moduleHyprlandLanguage = import ./hyprland-language.nix;
+  moduleHyprlandWorkspaces = import ./hyprland-workspaces.nix;
+  moduleHyprlandWindow = import ./hyprland-window.nix;
+  moduleHyprlandSubmap = import ./hyprland-submap.nix;
   moduleNiriLanguage = import ./niri-language.nix;
   moduleNiriWorkspaces = import ./niri-workspaces.nix;
   moduleWireplumberSink = import ./wireplumber-sink.nix;
@@ -65,8 +69,10 @@ let
     moduleKeyboardStateCapslock
     moduleNetworkWifiDl
     moduleNetworkWifiUl
-    moduleNiriLanguage
-    moduleNiriWorkspaces
+    moduleHyprlandLanguage
+    moduleHyprlandWorkspaces
+    moduleHyprlandWindow
+    moduleHyprlandSubmap
     moduleTray
   ];
 
@@ -96,7 +102,9 @@ let
 
     # Modules
     modules-left = [
-      "niri/workspaces"
+      "hyprland/workspaces"
+      "hyprland/submap"
+      "hyprland/window"
     ];
     modules-center = [
       "custom/clock"
@@ -114,7 +122,7 @@ let
       "backlight"
       "wireplumber#sink"
       "custom/separator"
-      "niri/language"
+      "hyprland/language"
       "custom/separator"
       "tray"
 

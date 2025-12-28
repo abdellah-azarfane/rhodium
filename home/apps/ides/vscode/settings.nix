@@ -69,7 +69,7 @@
           # --- Editor ---
           "editor.tabSize" = 2;
           "editor.insertSpaces" = true;
-          "editor.detectIndentation" = false;
+          "editor.detectIndentation" = true;
           "editor.suggestSelection" = "first";
           "editor.bracketPairColorization.enabled" = true;
           "editor.guides.bracketPairs" = "active";
@@ -100,11 +100,11 @@
           "editor.cursorSmoothCaretAnimation" = "on";
           "editor.cursorStyle" = "line";
           "editor.smoothScrolling" = true;
-          "editor.formatOnSave" = false;
+          "editor.formatOnSave" = true;
 
           # --- Todo Tree ---
           "todo-tree.general.statusBar" = "total";
-          "todo-tree.general.showActivityBarBadge" = false;
+          "todo-tree.general.showActivityBarBadge" = true;
           "todo-tree.general.showIconsInsteadOfTagsInStatusBar" = true;
 
           # --- Git/scm ---
@@ -130,9 +130,9 @@
           };
 
           "[rust]" = {
-            "editor.semanticHighlighting.enabled" = false;
+            "editor.semanticHighlighting.enabled" = true;
             "editor.defaultFormatter" = "rust-lang.rust-analyzer";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
             "editor.codeActionsOnSave" = {
               "source.fixAll" = "explicit";
             };
@@ -140,7 +140,7 @@
 
           "[nix]" = {
             "editor.defaultFormatter" = "jnoortheen.nix-ide";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
             "editor.codeActionsOnSave" = {
               "source.fixAll" = "explicit";
             };
@@ -148,7 +148,7 @@
 
           "[lua]" = {
             "editor.defaultFormatter" = "sumneko.lua";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
             "editor.codeActionsOnSave" = {
               "source.fixAll" = "explicit";
             };
@@ -156,7 +156,7 @@
 
           "[shellscript]" = {
             "editor.defaultFormatter" = "foxundermoon.shell-format";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
             "editor.codeActionsOnSave" = {
               "source.fixAll.shellcheck" = "explicit";
             };
@@ -164,7 +164,7 @@
 
           "[python]" = {
             "editor.defaultFormatter" = "charliermarsh.ruff";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
             "editor.codeActionsOnSave" = {
               "source.fixAll" = "explicit";
               "source.organizeImports" = "explicit";
@@ -173,40 +173,40 @@
 
           "[json]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
           };
 
           "[jsonc]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
           };
 
           "[markdown]" = {
             "editor.defaultFormatter" = "esbenp.prettier-vscode";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
             "files.trimTrailingWhitespace" = false;
           };
 
           "[yaml]" = {
             "editor.defaultFormatter" = "redhat.vscode-yaml";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
           };
 
           "[toml]" = {
             "editor.defaultFormatter" = "tamasfe.even-better-toml";
-            "editor.formatOnSave" = false;
+            "editor.formatOnSave" = true;
           };
 
           # --- Markdown ---
           "markdownlint.config" = {
-            "MD029" = false;
-            "MD024" = false;
+            "MD029" = true;
+            "MD024" = true;
           };
 
           # --- Explorer ---
           "explorer.compactFolders" = true;
-          "explorer.confirmDelete" = false;
-          "explorer.confirmDragAndDrop" = false;
+          "explorer.confirmDelete" = true;
+          "explorer.confirmDragAndDrop" = true;
 
           # --- Problems ---
           "problems.autoReveal" = true;
@@ -273,7 +273,7 @@
           "python.analysis.indexing" = true;
           "ruff.importStrategy" = "fromEnvironment";
           "python.testing.pytestEnabled" = true;
-          "python.testing.unittestEnabled" = false;
+          "python.testing.unittestEnabled" = true;
           "python.testing.pytestArgs" = [ "tests" ];
           "python.analysis.diagnosticMode" = "openFilesOnly";
           "python.analysis.diagnosticSeverityOverrides" = {
@@ -293,10 +293,10 @@
 
           "Lua.diagnostics.globals" = [ "vim" ];
           "Lua.workspace.library" = [ "\${3rd}/love2d/library" ];
-          "Lua.workspace.checkThirdParty" = false;
+          "Lua.workspace.checkThirdParty" = true;
 
           # --- Spell Checker ---
-          "cSpell.enabled" = false;
+          "cSpell.enabled" = true;
           "cSpell.validateDirectives" = true;
           "cSpell.ignorePaths" = [
             "**/node_modules/**"
@@ -331,11 +331,11 @@
           "terminal.integrated.smoothScrolling" = true;
 
           # --- Extensions ---
-          "extensions.autoCheckUpdates" = false;
-          "extensions.ignoreRecommendations" = true;
+          "extensions.autoCheckUpdates" = true;
+          "extensions.ignoreRecommendations" = false;
 
           # --- Misc ---
-          "security.workspace.trust.enabled" = false;
+          "security.workspace.trust.enabled" = true;
           "workbench.startupEditor" = "none";
           "redhat.telemetry.enabled" = false;
         };
