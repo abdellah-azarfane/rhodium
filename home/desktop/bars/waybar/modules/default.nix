@@ -110,10 +110,9 @@ let
       "custom/clock"
     ];
     modules-right = [
-      "group/wifi-speed"
-      "custom/vpn"
+      "network#wifi-dl"
+      "network#wifi-ul"
       "custom/separator"
-      "group/thermals"
       "battery"
       "cpu"
       "memory"
@@ -126,6 +125,10 @@ let
       "custom/separator"
       "tray"
 
+      # Commented out - enable if needed
+      # "group/wifi-speed"
+      # "custom/vpn"
+      # "group/thermals"
       # "keyboard-state#capslock"
     ];
   };
