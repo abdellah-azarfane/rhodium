@@ -5,7 +5,7 @@
     shelAlt = "nu";
     terminal = "kitty";
     terminalAlt = "ghostty";
-    browser = "Librewolf";
+    browser = "librewolf";
     browserAlt = "brave";
     wm = "hyprland";
 
@@ -28,7 +28,7 @@
   };
 
   profiles = {
-    Librewolf = {
+    librewolf = {
       personal = "Personal";
       media = "Media";
       solenoidlabs = "SolenoidLabsPablo";
