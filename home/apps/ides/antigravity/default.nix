@@ -1,11 +1,7 @@
 { pkgs-unstable, ... }:
 {
-  imports = [
+    home.packages = with pkgs-unstable; [
+    antigravity
   ];
-
-  programs.antigravity = {
-    enable = true;
-    package = pkgs-unstable.antigravity;
-  };
 }
 
