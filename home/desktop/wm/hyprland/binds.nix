@@ -1,7 +1,6 @@
-{
-  host,
-  userPreferences,
-  ...
+{ host
+, userPreferences
+, ...
 }:
 let
   preferredApps = userPreferences.apps;
@@ -28,51 +27,21 @@ in
       "$mainMod SHIFT, F, exec, ${preferredApps.filesGraphic}"
       "$mainMod SHIFT, E, exec, ${preferredApps.terminal} -e ${preferredApps.editorAlt}"
       "$mainMod SHIFT, I, exec, ${preferredApps.ideAlt}"
-      # "$mainMod SHIFT, A, exec, ~/.local/bin/rofi-jumper.sh"
+      "$mainMod SHIFT, A, exec, fuzzel"
       # "$mainMod SHIFT, S, exec, ~/.local/bin/utils-screenshot.sh --area"
       # "$mainMod SHIFT, M, exec, ~/.local/bin/utils-screenshot.sh"
       # "$mainMod SHIFT, H, exec, ~./local/bin/utils-color-picker.sh"
 
       # Tier 3 (Secondary menus & appearance)
-      "$mainMod ALT, P, exec, ~/.local/bin/rofi-power.sh"
-      "$mainMod ALT, N, exec, ~/.local/bin/rofi-nixos.sh"
-      "$mainMod ALT, B, exec, ~/.local/bin/rofi-bluetooth.sh"
-      "$mainMod ALT, W, exec, ~/.local/bin/rofi-wifi.sh"
-      "$mainMod ALT, D, exec, ~/.local/bin/rofi-devices.sh"
-      "$mainMod ALT, M, exec, ~/.local/bin/rofi-monitors.sh"
+      # "$mainMod ALT, P, exec, ~/.local/bin/rofi-power.sh"
+      # "$mainMod ALT, N, exec, ~/.local/bin/rofi-nixos.sh"
+      # "$mainMod ALT, B, exec, ~/.local/bin/rofi-bluetooth.sh"
+      # "$mainMod ALT, W, exec, ~/.local/bin/rofi-wifi.sh"
+      # "$mainMod ALT, D, exec, ~/.local/bin/rofi-devices.sh"
+      # "$mainMod ALT, M, exec, ~/.local/bin/rofi-monitors.sh"
       # "$mainMod, ALT, W, exec, ~./local/bin/rofi-wallpaper.sh"
       # "$mainMod, ALT, S, exec, ~/.local/bin/utils-screenshot.sh" # Add an area arg
-      
-            # Special workspaces DMS & Noctalia
-      /*
-      "$mainMod, A, exec, dms ipc spotlight toggle"
-      "$mainMod, N, exec, dms ipc notifications toggle"
-      "$mainMod, Y, exec, dms ipc settings toggle"
-      "$mainMod CTRL, N, exec, dms ipc notepad toggle"
-      "$mainMod, P, exec, dms ipc powermenu toggle"
-      "$mainMod ALT, N, exec, dms ipc night toggle"
-     ////////////////////////////////////////////////////////////////////
-      "$mainMod, comma, exec, noctalia-shell ipc call settings toggle"
-      "$mainMod ALT, S, exec, noctalia-shell ipc call settings toggle"
-      "$mainMod SHIFT, K, exec, noctalia-shell ipc call controlCenter toggle"
-      "$mainMod, A, exec, noctalia-shell ipc call launcher toggle"
-      "$mainMod, N, exec, noctalia-shell ipc call notifications toggleHistory"
-      #"$mainMod, Y, exec, dms ipc settings toggle"
-      #"$mainMod CTRL, N, exec, dms ipc notepad togg"
-      "$mainMod, P, exec, noctalia-shell ipc call sessionMenu toggle"
-     # "$mainMod  Q, exec, noctalia-shell ipc call launcher calculator"
-      "$mainMod SHIFT, Q, exec, noctalia-shell ipc call calendar toggle"
-      "$mainMod SHIFT, H, exec, noctalia-shell ipc call sessionMenu lockAndSuspend"
-*/
-      # Hyprpaper
-      # ----------------------------------------
 
-      # TODO: Eventually we do this using map. For now we go for the simpler route
-      "$mainMod ALT, 1, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-01.jpg"
-      "$mainMod ALT, 2, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-02.jpg"
-      "$mainMod ALT, 3, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-03.jpg"
-      "$mainMod ALT, 4, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-04.jpg"
-      "$mainMod ALT, 5, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-05.jpg"
 
       # Special workspaces
       "$mainMod, Q, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk"
@@ -149,11 +118,11 @@ in
     ];
 
     bindel = [
-        # speaker and mic volume control
-        " , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"
-        " , XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"
-        " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
-        " , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+      # speaker and mic volume control
+      " , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"
+      " , XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"
+      " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      " , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
 
     bindl = [
@@ -185,6 +154,6 @@ in
 
       # performance
       " , XF86Launch4, exec, asusctl profile -n"
-      ];
+    ];
   };
 }

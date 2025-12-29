@@ -285,15 +285,15 @@
       icon = "brave";
       description = "Brave";
     };
-    firefox-incognito = {
-      binary = "firefox";
+    librewolf-incognito = {
+      binary = "librewolf";
       args = [
         "-p"
         "Personal"
         "--private-window"
       ];
-      icon = "firefox";
-      description = "Firefox Incognito";
+      icon = "librewolf";
+      description = "LibreWolf Incognito";
     };
   };
 
