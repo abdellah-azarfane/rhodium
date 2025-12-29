@@ -5,7 +5,7 @@ let
 
   # Browser-specific argument templates
   browserConfigs = {
-    firefox = {
+    librewolf = {
       profileFlag = "-P";
       newWindowFlag = "-new-window";
       executable = "librewolf";
