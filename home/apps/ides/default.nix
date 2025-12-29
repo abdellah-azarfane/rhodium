@@ -7,5 +7,6 @@
     ./texmaker.nix
     ./vscode.nix
     ./zed.nix
+    ./antigravity
   ];
 }
