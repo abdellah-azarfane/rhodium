@@ -6,6 +6,12 @@
 with lib;
 let
   pkgIf = name: lib.optionals (builtins.hasAttr name pkgs) [ pkgs.${name} ];
+  binOnly = pkg:
+    pkgs.buildEnv {
+      name = "${lib.getName pkg}-bin";
+      pathsToLink = [ "/bin" ];
+      paths = [ pkg ];
+    };
 in
 {
   options = {
@@ -22,14 +28,14 @@ in
       pkgs.dvc # Git for data, models, and pipelines
 
       # --- Language Models ---
-      pkgs.llama-cpp # C/C++ implementation of LLaMA model inference
+      (binOnly pkgs.llama-cpp) # Avoid include/ collisions in HM buildEnv
       pkgs.ollama # Run large language models locally
 
       # --- Model Tools ---
       # --- NLP Frameworks ---
 
       # --- Speech Recognition ---
-      pkgs.whisper-cpp # Low-resource C++ port of OpenAI's Whisper
+      (binOnly pkgs.whisper-cpp) # Avoid include/ collisions in HM buildEnv
 
       # --- Vector Databases ---
       pkgs.qdrant # Vector database management for semantic search
