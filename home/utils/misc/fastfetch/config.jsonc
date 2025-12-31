@@ -27,9 +27,17 @@
       "width": 12,
     },
     "bar": {
-      "char": "─",
+      "char": {
+        "elapsed": "─",
+        "total": "─"
+      },
       "width": 16,
-      "border": false,
+      "border": {
+        "left": "",
+        "right": "",
+        "leftElapsed": "",
+        "rightElapsed": ""
+      },
     },
     "percent": {
       "type": 1,
