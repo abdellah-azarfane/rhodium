@@ -1,7 +1,6 @@
-{
-  host,
-  pkgs,
-  ...
+{ host
+, pkgs
+, ...
 }:
 {
   imports = [
@@ -46,7 +45,7 @@
     keychronUdev.enable = true;
     hdmiAutoSwitch.enable = true;
   };
-  maintenance.garbageCollection = {
+  maintenance.nhClean = {
     enable = true;
     schedule = "daily";
     deleteOlderThan = "30d";

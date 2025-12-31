@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
     # Hyprtools
@@ -19,7 +19,6 @@
 
   programs.hyprland = {
     enable = true;
-    package = pkgs-unstable.hyprland;
     xwayland.enable = true;
   };
 

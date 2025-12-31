@@ -1,10 +1,12 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
+{ config
+, lib
+, pkgs
+, ...
 }:
 with lib;
+let
+  pkgIf = name: lib.optionals (builtins.hasAttr name pkgs) [ pkgs.${name} ];
+in
 {
   options = {
     programs.development.ml = {
@@ -12,34 +14,32 @@ with lib;
     };
   };
   config = mkIf config.programs.development.ml.enable {
-    home.packages = with pkgs; [
+    home.packages = [
       # --- AI Agent Frameworks ---
-      autogen # Framework for building autonomous AI agents
+      pkgs.autogen # Framework for building autonomous AI agents
 
       # --- Data Versioning ---
-      dvc # Git for data, models, and pipelines
+      pkgs.dvc # Git for data, models, and pipelines
 
       # --- Language Models ---
-      llama-cpp # C/C++ implementation of LLaMA model inference
-      ollama # Run large language models locally
-      text-generation-webui # Web UI to run and fine-tune language models locally
+      pkgs.llama-cpp # C/C++ implementation of LLaMA model inference
+      pkgs.ollama # Run large language models locally
 
       # --- Model Tools ---
-      ggml-tools # Tools for working with GGML quantized models
-      huggingface-cli # CLI for downloading and managing Hugging Face models
-
       # --- NLP Frameworks ---
-      haystack # End-to-end framework for building NLP pipelines
 
       # --- Speech Recognition ---
-      whisper-cpp # Low-resource C++ port of OpenAI's Whisper
-
-      # --- UI Interfaces ---
-      comfyui # Node-based UI for advanced Stable Diffusion workflows
+      pkgs.whisper-cpp # Low-resource C++ port of OpenAI's Whisper
 
       # --- Vector Databases ---
-      milvus # Open-source vector database for similarity search
-      qdrant # Vector database management for semantic search
-    ];
+      pkgs.qdrant # Vector database management for semantic search
+    ]
+    # Optional packages (may live in overlays or be removed/renamed in nixpkgs)
+    ++ pkgIf "text-generation-webui"
+    ++ pkgIf "ggml-tools"
+    ++ pkgIf "huggingface-cli"
+    ++ pkgIf "haystack"
+    ++ pkgIf "comfyui"
+    ++ pkgIf "milvus";
   };
 }

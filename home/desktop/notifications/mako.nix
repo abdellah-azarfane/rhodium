@@ -1,39 +1,6 @@
 { ... }:
 let
-  c = {
-    # Normal
-    color0 = "#0d0c0cff";
-    color1 = "#c4746eff";
-    color2 = "#8a9a7bff";
-    color3 = "#c4b28aff";
-    color4 = "#8ba4b0ff";
-    color5 = "#a292a3ff";
-    color6 = "#8ea4a2ff";
-    color7 = "#C8C093ff";
-    # Bright
-    color8 = "#A4A7A4ff";
-    color9 = "#E46876ff";
-    color10 = "#87a987ff";
-    color11 = "#E6C384ff";
-    color12 = "#7FB4CAff";
-    color13 = "#938AA9ff";
-    color14 = "#7AA89Fff";
-    color15 = "#C5C9C7ff";
-    # Extended
-    color16 = "#b6927bff";
-    color17 = "#b98d7bff";
-    color18 = "#678298ff";
-    color19 = "#4a7fffff";
-    color20 = "#59bfaaff";
-    color21 = "#0d0d0dff";
-    color22 = "#C24043ff";
-    color23 = "#f2f2f2ff";
-    color24 = "#2a2a2aff";
-  };
-
-  i = {
-    icon01 = "◆";
-  };
+  c = (import ../../assets/colors/kanso-palette.nix).rgba;
 
   notifTime = {
     xs = 1000;

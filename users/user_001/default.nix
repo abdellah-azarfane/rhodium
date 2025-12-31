@@ -1,13 +1,12 @@
-{
-  inputs,
-  pkgs,
-  userData,
-  theme,
-  userExtras,
-  rhodiumLib,
-  userPreferences,
-  host,
-  ...
+{ inputs
+, pkgs
+, userData
+, theme
+, userExtras
+, rhodiumLib
+, userPreferences
+, host
+, ...
 }:
 {
   imports = [
@@ -81,6 +80,13 @@
     development.languages = {
       haskell.enable = true;
     };
+  };
+
+  programs.development = {
+    hktools.enable = true;
+    ml.enable = true;
+    misc.enable = true;
+    opsec.enable = true;
   };
 
   # --- User Config ---
