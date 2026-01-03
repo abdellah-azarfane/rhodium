@@ -66,7 +66,7 @@ let
         ];
 
       specialArgs = {
-        inherit pkgs inputs rhodiumLib;
+        inherit inputs rhodiumLib;
         users = ctx.userData;
         host = ctx.hostData.${hostName} or { };
       };
