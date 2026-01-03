@@ -65,5 +65,5 @@
     "nix-command"
     "flakes"
   ];
-  system.stateVersion = "25.11"; # NOTE: Original derivation
+  system.stateVersion = "26.05"; # NOTE: U DO HAVE TO USE THIS VERSION !!!! USE 25.11 IF U IN STABLE CHANNEL
 }

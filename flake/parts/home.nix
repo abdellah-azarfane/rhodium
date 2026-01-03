@@ -1,12 +1,11 @@
-{ inputs, lib, rhodiumRoot, mkPkgs, mkPkgsUnstable, mkRhodiumLib, mkContext, ... }:
+{ inputs, lib, rhodiumRoot, mkPkgs, mkRhodiumLib, mkContext, ... }:
 let
   nixpkgsLib = inputs.nixpkgs.lib;
   system = "x86_64-linux";
 
   pkgs = mkPkgs system;
-  pkgs-unstable = mkPkgsUnstable system;
   rhodiumLib = mkRhodiumLib pkgs;
-  ctx = mkContext { inherit pkgs pkgs-unstable rhodiumLib; };
+  ctx = mkContext { inherit pkgs rhodiumLib; };
 in
 {
   config.flake.homeConfigurations = {
@@ -15,7 +14,7 @@ in
       modules = [ (rhodiumRoot + "/users/user_001") ];
       extraSpecialArgs = {
         inherit
-          pkgs-unstable
+          pkgs
           inputs
           rhodiumLib
           ;

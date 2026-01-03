@@ -10,8 +10,7 @@
 `flake.nix` does 2 main things:
 
 1. Declares **inputs** (pinned dependencies), e.g.:
-   - `nixpkgs` (stable channel: `nixos-25.11`)
-   - `nixpkgs-unstable`
+   - `nixpkgs` (unstable channel: `nixos-26.05`)
    - `home-manager`
    - `flake-parts` (used to structure the flake)
 2. Declares **outputs** using `flake-parts`:

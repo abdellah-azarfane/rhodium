@@ -93,6 +93,6 @@
   home = {
     username = userData.user_001.username;
     homeDirectory = "/home/${userData.user_001.username}";
-    stateVersion = "25.11";
+    stateVersion = "26.05"; # NOTE: U DO HAVE TO USE THIS VERSION !!!! USE 25.11 IF U IN STABLE CHANNEL PIN HM TO STABLE BRANCH
   };
 }

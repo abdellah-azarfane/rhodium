@@ -29,7 +29,7 @@ let
     let
       overlaysWithInputs = mkOverlaysWithInputs { inherit inputs; };
     in
-    import inputs.nixpkgs-unstable {
+    import inputs.nixpkgs {
       inherit system;
       config = {
         allowUnfree = true;
@@ -44,7 +44,6 @@ let
 
   mkContext =
     { pkgs
-    , pkgs-unstable
     , rhodiumLib
     }:
     let
@@ -126,7 +125,6 @@ let
     {
       inherit
         pkgs
-        pkgs-unstable
         rhodiumLib
         userData
         userPreferences

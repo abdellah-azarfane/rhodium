@@ -1,4 +1,4 @@
-{ inputs, lib, rhodiumRoot, mkPkgs, mkPkgsUnstable, mkRhodiumLib, mkContext, ... }:
+{ inputs, lib, rhodiumRoot, mkPkgs, mkRhodiumLib, mkContext, ... }:
 let
   nixpkgsLib = inputs.nixpkgs.lib;
 
@@ -9,15 +9,13 @@ let
     let
       system = hostDef.system or "x86_64-linux";
       pkgs = mkPkgs system;
-      pkgs-unstable = mkPkgsUnstable system;
       rhodiumLib = mkRhodiumLib pkgs;
-      ctx = mkContext { inherit pkgs pkgs-unstable rhodiumLib; };
+      ctx = mkContext { inherit pkgs rhodiumLib; };
 
       hmUserName = ctx.userData.user_001.username or "user_001";
 
       hmExtraSpecialArgsBase = {
         inherit (ctx)
-          pkgs-unstable
           rhodiumLib
           userData
           userPreferences
@@ -68,7 +66,7 @@ let
         ];
 
       specialArgs = {
-        inherit pkgs-unstable inputs rhodiumLib;
+        inherit pkgs inputs rhodiumLib;
         users = ctx.userData;
         host = ctx.hostData.${hostName} or { };
       };

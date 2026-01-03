@@ -83,10 +83,6 @@ update-input input:
 update-stable:
     @nix flake lock --update-input nixpkgs
 
-# Update unstable nixpkgs
-update-unstable:
-    @nix flake lock --update-input nixpkgs-unstable
-
 # Show flake metadata
 flake-info:
     @{{recipes_path}}/rh-flake-info.sh
