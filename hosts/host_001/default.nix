@@ -1,7 +1,6 @@
-{
-  host,
-  pkgs,
-  ...
+{ host
+, pkgs
+, ...
 }:
 {
   imports = [
@@ -17,7 +16,7 @@
     ../../modules/desktop/wm/hyprland/intel.nix
     ../../modules/integration
     ../../modules/virtualization
-    ../../modules/virtualization/docker-amd.nix
+    ../../modules/virtualization/docker-nvidia.nix
     ../../modules/apps
     ../../modules/rules
     ../../modules/maintenance
