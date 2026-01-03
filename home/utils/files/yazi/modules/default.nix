@@ -1,8 +1,6 @@
-{
-  lib,
-  pkgs,
-  pkgs-unstable,
-  ...
+{ lib
+, pkgs
+, ...
 }:
 let
   configBase = import ./base.nix { };
@@ -22,7 +20,7 @@ in
       diff = pkgs.yaziPlugins.diff;
       duckdb = pkgs.yaziPlugins.duckdb;
       full-border = pkgs.yaziPlugins.full-border;
-      git = pkgs-unstable.yaziPlugins.git;
+      git = pkgs.yaziPlugins.git;
       miller = pkgs.yaziPlugins.miller;
       mediainfo = pkgs.yaziPlugins.mediainfo;
       mount = pkgs.yaziPlugins.mount;
@@ -35,7 +33,7 @@ in
       smart-paste = pkgs.yaziPlugins.smart-paste;
       toggle-pane = pkgs.yaziPlugins.toggle-pane;
       yatline = pkgs.yaziPlugins.yatline;
-      yatline-githead = pkgs-unstable.yaziPlugins.yatline-githead;
+      yatline-githead = pkgs.yaziPlugins.yatline-githead;
     };
   };
   xdg.configFile = configFiles;
