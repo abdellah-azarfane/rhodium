@@ -15,7 +15,7 @@ test_basic() {
 test_explicit() {
     echo "2. Testing with explicit flags (ignoring config)..."
     swaylock \
-        --image /home/zayron/.local/share/wallpapers/dante/wallpaper-01.jpg \
+        --image /home/abosafiya/.local/share/wallpapers/dante/wallpaper-01.jpg \
         --scaling fill \
         --color 1a1a1aff \
         --font "JetBrains Mono Nerd Font" \
@@ -60,7 +60,7 @@ quick_lock() {
 # Alternative minimal lock (no indicator)
 minimal_lock() {
     swaylock \
-        --image /home/zayron/.local/share/wallpapers/dante/wallpaper-01.jpg \
+        --image /home/abosafiya/.local/share/wallpapers/dante/wallpaper-01.jpg \
         --scaling fill \
         --no-unlock-indicator
 }
@@ -76,10 +76,10 @@ echo ""
 read -p "Option (1-5): " choice
 
 case $choice in
-    1) test_basic ;;
-    2) test_explicit ;;
-    3) test_states ;;
-    4) quick_lock ;;
-    5) minimal_lock ;;
-    *) echo "Invalid option" ;;
+1) test_basic ;;
+2) test_explicit ;;
+3) test_states ;;
+4) quick_lock ;;
+5) minimal_lock ;;
+*) echo "Invalid option" ;;
 esac

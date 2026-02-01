@@ -1,7 +1,9 @@
-{ ... }:
+{ pkgs, ... }: # <--- Added 'pkgs' here so we can find vivid
 {
   programs.nushell.extraConfig = ''
-    # Define custom theme
+    # ---------------------------------------------------------
+    # 1. THEME DEFINITION (Chiaroscuro)
+    # ---------------------------------------------------------
     def chiaroscuro [] {
       {
         separator: "#a0a0a0"
@@ -74,12 +76,17 @@
       }
     }
 
-    # Apply the theme
+    # ---------------------------------------------------------
+    # 2. APPLY THEME
+    # ---------------------------------------------------------
     $env.config = ($env.config | merge {
       color_config: (chiaroscuro)
     })
 
-    # Configure LS_COLORS for better file type visibility
-    $env.LS_COLORS = (vivid generate mocha)
+    # ---------------------------------------------------------
+    # 3. LS_COLORS (The Fix)
+    # ---------------------------------------------------------
+    # We use string interpolation ${...} to point to the exact vivid binary
+    $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate mocha)
   '';
 }

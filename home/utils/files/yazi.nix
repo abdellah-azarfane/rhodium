@@ -1,5 +1,7 @@
-{ pkgs
-, ...
+{
+  pkgs,
+  pkgs-unstable,
+  ...
 }:
 {
   imports = [
@@ -9,6 +11,6 @@
   programs.yazi = {
     enable = true;
     # package = pkgs.yazi;
-    package = pkgs.yazi; # NOTE: Using unstable for now due to some plugin requirements
+    package = pkgs-unstable.yazi; # NOTE: Using unstable for now due to some plugin requirements
   };
 }

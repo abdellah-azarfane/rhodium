@@ -22,10 +22,6 @@ let
   moduleMemory = import ./memory.nix;
   moduleNetworkWifiDl = import ./network-wifi-dl.nix;
   moduleNetworkWifiUl = import ./network-wifi-ul.nix;
-  moduleHyprlandLanguage = import ./hyprland-language.nix;
-  moduleHyprlandWorkspaces = import ./hyprland-workspaces.nix;
-  moduleHyprlandWindow = import ./hyprland-window.nix;
-  moduleHyprlandSubmap = import ./hyprland-submap.nix;
   moduleNiriLanguage = import ./niri-language.nix;
   moduleNiriWorkspaces = import ./niri-workspaces.nix;
   moduleWireplumberSink = import ./wireplumber-sink.nix;
@@ -69,10 +65,8 @@ let
     moduleKeyboardStateCapslock
     moduleNetworkWifiDl
     moduleNetworkWifiUl
-    moduleHyprlandLanguage
-    moduleHyprlandWorkspaces
-    moduleHyprlandWindow
-    moduleHyprlandSubmap
+    moduleNiriLanguage
+    moduleNiriWorkspaces
     moduleTray
   ];
 
@@ -102,17 +96,16 @@ let
 
     # Modules
     modules-left = [
-      "hyprland/workspaces"
-      "hyprland/submap"
-      "hyprland/window"
+      "niri/workspaces"
     ];
     modules-center = [
       "custom/clock"
     ];
     modules-right = [
-      "network#wifi-dl"
-      "network#wifi-ul"
+      "group/wifi-speed"
+      "custom/vpn"
       "custom/separator"
+      "group/thermals"
       "battery"
       "cpu"
       "memory"
@@ -121,14 +114,10 @@ let
       "backlight"
       "wireplumber#sink"
       "custom/separator"
-      "hyprland/language"
+      "niri/language"
       "custom/separator"
       "tray"
 
-      # Commented out - enable if needed
-      # "group/wifi-speed"
-      # "custom/vpn"
-      # "group/thermals"
       # "keyboard-state#capslock"
     ];
   };

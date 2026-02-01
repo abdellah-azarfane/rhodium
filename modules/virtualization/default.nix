@@ -1,6 +1,0 @@
-{ ... }:
-{
-  imports = [
-    ./vm-variants.nix
-  ];
-}

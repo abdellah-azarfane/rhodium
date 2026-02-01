@@ -1,38 +1,46 @@
-{ host
-, pkgs
-, ...
+{
+  host,
+  pkgs,
+  ...
 }:
 {
   imports = [
-    ./hardware-configuration.nix
-    ../../modules/boot/boot.nix
-    ../../modules/services
-    ../../modules/hardware
-    ../../modules/shell
-    ../../modules/security
-    ../../modules/users
-    ../../modules/manager
-    ../../modules/desktop
-    ../../modules/desktop/wm/hyprland/intel.nix
-    ../../modules/integration
-    ../../modules/virtualization
-    ../../modules/virtualization/docker-nvidia.nix
     ../../modules/apps
-    ../../modules/rules
+    ../../modules/containers    
+    ../../modules/desktop
+    ../../modules/desktop/wm/niri
+    ../../modules/disk-boot
+    ../../modules/drivers
+    ../../modules/hardware
+    ../../modules/integration
     ../../modules/maintenance
-    ../../modules/utils
+    ../../modules/manager
     ../../modules/network
-    ./disko.nix
+    ../../modules/rules
+    ../../modules/security
+    ../../modules/services
+    ../../modules/shell
+    ../../modules/users
+    ../../modules/utils
   ];
 
   # Base
-
+  # ---------------------------------
+  # Boot + Disk configurations
+  diskBoot = {
+    enable = true;
+    profile = "laptop";
+  };
+  # Drivers option ( all gpu/cpu drivers configurations + nvidia-laptop for laptop nvidia ) if u using an ARM/aarch64 put the options to none
+  drivers = {
+    cpu = "intel";
+    gpu = "nvidia-laptop";
+  };
   # Host Configuration
   networking = {
     hostName = host.hostname or "nixos";
     networkmanager.enable = true;
   };
-
   # Modules
   # ---------------------------------
   # Display Manager
@@ -49,21 +57,16 @@
   # Extra rules
   extraRules = {
     keychronUdev.enable = true;
+    keychronQ3Udev.enable = true;
     hdmiAutoSwitch.enable = true;
+    netgearA8000Udev.enable = true;
   };
 
   # Garbage override
-  maintenance.nhClean = {
+  maintenance.garbageCollection = {
     enable = true;
-    schedule = "daily"; # ou weekly
-    deleteOlderThan = "7d"; # supprime les vieilles générations
+    schedule = "daily";
+    deleteOlderThan = "30d";
   };
-
-  # Extra Args
-  # ---------------------------------
-  nix.settings.experimental-features = [
-    "nix-command"
-    "flakes"
-  ];
-  system.stateVersion = "26.05"; # NOTE: U DO HAVE TO USE THIS VERSION !!!! USE 25.11 IF U IN STABLE CHANNEL
+  system.stateVersion = "25.05"; # NOTE: Original derivation
 }

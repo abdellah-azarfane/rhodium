@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./binds.nix
+    ./zsh_keybinds.nix
   ];
 }

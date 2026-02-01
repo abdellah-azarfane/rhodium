@@ -1,15 +1,14 @@
-{ pkgs, ... }:
+{ fishPlugins, ... }:
 {
   # TODO: Fix this
   programs.man.generateCaches = false;
 
   imports = [
-    #   ./fish
+    ./fish
   ];
 
   programs.fish = {
-    enable = false;
-    package = pkgs.fish;
-    #   plugins = fishPlugins;
+    enable = true;
+    plugins = fishPlugins;
   };
 }

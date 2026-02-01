@@ -30,7 +30,6 @@
     dool # System statistics tool (dstat replacement)
     inxi # My swiss army knife
     lshw # List hardware
-    lshw # List hardware
     pciutils # lspci
     read-edid # EDID information
     smartmontools # S.M.A.R.T. monitoring
@@ -38,7 +37,7 @@
     usbutils # lsusb
     evtest # Live-test keyboards
     libinput # Handle inputs in Wayland
-    parted # Partition management
+
     # --- Audio Tools ---
     alsa-utils # ALSA utilities
 

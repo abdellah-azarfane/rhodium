@@ -1,12 +1,13 @@
-{ inputs
-, pkgs
-, userData
-, theme
-, userExtras
-, rhodiumLib
-, userPreferences
-, host
-, ...
+{
+  inputs,
+  pkgs,
+  userData,
+  theme,
+  userExtras,
+  rhodiumLib,
+  userPreferences,
+  host,
+  ...
 }:
 {
   imports = [
@@ -61,13 +62,17 @@
   # Custom services
   # NOTE: These are custom services located under home/services, and run as systemd daemons
   userExtraServices = {
+    rh-brave-preload.enable = true; # vmtouch: lock Brave binaries in RAM for instant startup
     rh-eww.enable = false;
+    rh-firefox-preload.enable = true; # vmtouch: lock Firefox binaries in RAM for instant startup
     rh-kmonad.enable = true;
     rh-mako.enable = false;
     rh-neovim-daemon.enable = false;
     rh-swaybg.enable = false;
+    rh-swww.enable = true;
     rh-system-keyring.enable = true;
     rh-waybar.enable = true;
+    rh-wifiSwitch.enable = true;
     rh-wlsunset.enable = false;
     rh-hdmiAutoSwitch.enable = true;
   };
@@ -82,17 +87,10 @@
     };
   };
 
-  programs.development = {
-    hktools.enable = true;
-    ml.enable = true;
-    misc.enable = true;
-    opsec.enable = true;
-  };
-
   # --- User Config ---
   home = {
     username = userData.user_001.username;
     homeDirectory = "/home/${userData.user_001.username}";
-    stateVersion = "26.05"; # NOTE: U DO HAVE TO USE THIS VERSION !!!! USE 25.11 IF U IN STABLE CHANNEL PIN HM TO STABLE BRANCH
+    stateVersion = "25.05";
   };
 }

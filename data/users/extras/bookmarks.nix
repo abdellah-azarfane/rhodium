@@ -46,10 +46,22 @@ in
       description = "ClaudeAI";
       categories = [ categories.productivity ];
     };
+    claude-2 = {
+      profile = "genai-2";
+      url = "https://claude.ai";
+      description = "ClaudeAI 2";
+      categories = [ categories.productivity ];
+    };
     gemini = {
+      profile = "genai-2";
+      url = "https://gemini.google.com/app";
+      description = "GeminiAI";
+      categories = [ categories.productivity ];
+    };
+    gemini-ai-studio = {
       profile = "genai";
       url = "https://aistudio.google.com/";
-      description = "GeminiAI";
+      description = "GeminiAI Studio";
       categories = [ categories.productivity ];
     };
     lumo = {
@@ -169,18 +181,6 @@ in
         categories.reference
       ];
     };
-    amazon-mexico = {
-      profile = "personal";
-      url = "https://amazon.com.mx";
-      description = "Amazon Mexico";
-      categories = [ categories.shopping ];
-    };
-    american-express = {
-      profile = "personal";
-      url = "https://www.americanexpress.com/es-mx/account/login";
-      description = "American Express";
-      categories = [ categories.finance ];
-    };
     asciiart = {
       profile = "personal";
       url = "https://www.asciiart.eu/";
@@ -264,10 +264,11 @@ in
     };
     github = {
       profile = "personal";
-      url = "https://github.com/abdellah-azarfane";
+      url = "https://github.com/abdellah-azarfane?tab=repositories";
       description = "GitHub Repos";
       categories = [ categories.productivity ];
     };
+
     gnome-style-schemes = {
       profile = "personal";
       url = "https://wiki.gnome.org/Projects/GtkSourceView/StyleSchemes";
@@ -326,12 +327,6 @@ in
       profile = "ultra";
       url = "https://linear.app/sanctum-black";
       description = "Linear";
-      categories = [ categories.productivity ];
-    };
-    linear-rhodium = {
-      profile = "ultra";
-      url = "https://linear.app/sanctum-black/project/0607-sys-prj-rhodium-3fc0956ba956/issues";
-      description = "Linear Rhodium";
       categories = [ categories.productivity ];
     };
     linkedin = {
@@ -532,12 +527,6 @@ in
       description = "LME-QNAP-6S4R";
       categories = [ categories.servers ];
     };
-    server-alexandria = {
-      profile = "personal";
-      url = "http://google.com";
-      description = "Alexandria";
-      categories = [ categories.servers ];
-    };
     simpleicons = {
       profile = "personal";
       url = "https://simpleicons.org/";
@@ -612,99 +601,82 @@ in
     };
   };
 
-  solenoidlabs = {
-    figma = {
-      profile = "solenoidlabs";
-      url = "https://figma.com";
-      description = "Figma";
-      categories = [
-        categories.design
-        categories.productivity
-      ];
-    };
-    github = {
-      profile = "solenoidlabs";
-      url = "https://github.com/orgs/Solenoid-Labs/repositories";
-      description = "GitHub Solenoid Labs";
-      categories = [ categories.productivity ];
-    };
-    googledrive = {
-      profile = "solenoidlabs";
-      url = "https://drive.google.com";
-      description = "Google Drive";
-      categories = [ categories.productivity ];
-    };
-    rhodium-web = {
-      profile = "solenoidlabs";
-      url = "https://rhodium.solenoidlabs.com/";
-      description = "Rhodium Web";
-      categories = [ categories.productivity ];
-    };
-    rhodium-web-docs = {
-      profile = "solenoidlabs";
-      url = "https://rhodium.solenoidlabs.com/docs";
-      description = "Rhodium Web Docs";
-      categories = [ categories.productivity ];
-    };
-    upwork = {
-      profile = "solenoidlabs";
-      url = "https://upwork.com";
-      description = "Upwork";
-      categories = [ categories.productivity ];
-    };
-    vercel-rhodium = {
-      profile = "solenoidlabs";
-      url = "https://vercel.com/pablos-projects-f712375e/rhodium-rh";
-      description = "Vercel Solenoid Labs";
-      categories = [ categories.productivity ];
-    };
+  googledrive = {
+    profile = "solenoidlabs";
+    url = "https://drive.google.com";
+    description = "Google Drive";
+    categories = [ categories.productivity ];
+  };
+  rhodium-web = {
+    profile = "solenoidlabs";
+    url = "https://rhodium.solenoidlabs.com/";
+    description = "Rhodium Web";
+    categories = [ categories.productivity ];
+  };
+  rhodium-web-docs = {
+    profile = "solenoidlabs";
+    url = "https://rhodium.solenoidlabs.com/docs";
+    description = "Rhodium Web Docs";
+    categories = [ categories.productivity ];
+  };
+  upwork = {
+    profile = "solenoidlabs";
+    url = "https://upwork.com";
+    description = "Upwork";
+    categories = [ categories.productivity ];
+  };
+  vercel-rhodium = {
+    profile = "solenoidlabs";
+    url = "https://vercel.com/pablos-projects-f712375e/rhodium-rh";
+    description = "Vercel Solenoid Labs";
+    categories = [ categories.productivity ];
   };
 
-  uk = {
+  fr = {
     airbnb = {
-      profile = "uk";
-      url = "https://airbnb.co.uk";
+      profile = "fr";
+      url = "https://airbnb.fr";
       description = "AirBnB";
       categories = [ categories.travel ];
     };
-    amazon = {
-      profile = "uk";
-      url = "https://amazon.co.uk";
-      description = "Amazon UK";
+    amazon-fr = {
+      profile = "fr";
+      url = "https://amazon.co.fr";
+      description = "Amazon FR";
       categories = [ categories.shopping ];
     };
     boots = {
-      profile = "uk";
+      profile = "fr";
       url = "https://www.boots.com/";
       description = "Boots";
       categories = [ categories.shopping ];
     };
     google-maps = {
-      profile = "uk";
+      profile = "fr";
       url = "https://maps.google.com";
       description = "Google Maps";
       categories = [ categories.utils ];
     };
-    ikea-uk = {
-      profile = "uk";
-      url = "https://www.ikea.com/gb/en/";
-      description = "IKEA United Kingdom";
+    ikea-fr = {
+      profile = "fr";
+      url = "https://www.ikea.com/fr/";
+      description = "IKEA FRENCE";
       categories = [ categories.shopping ];
     };
-    paypal-uk = {
-      profile = "uk";
-      url = "https://www.paypal.com/uk";
-      description = "PayPal UK";
+    paypal-fr = {
+      profile = "fr";
+      url = "https://www.paypal.com/fr";
+      description = "PayPal FR";
       categories = [ categories.finance ];
     };
     sainsburys = {
-      profile = "uk";
-      url = "https://www.sainsburys.co.uk/gol-ui/groceries";
+      profile = "fr";
+      url = "https://www.sainsburys.co.fr/gol-ui/groceries";
       description = "Sainsbury's";
       categories = [ categories.shopping ];
     };
     tesco = {
-      profile = "uk";
+      profile = "fr";
       url = "https://www.tesco.com/groceries/";
       description = "Tesco";
       categories = [ categories.shopping ];

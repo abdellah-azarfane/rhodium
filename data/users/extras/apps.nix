@@ -40,7 +40,7 @@
       description = "VS Code";
     };
     emacs = {
-      binary = "/home/zayron/.config/emacs/bin/doom";
+      binary = "/home/abosafiya/.config/emacs/bin/doom";
       args = [ "emacs" ];
       icon = "emacs";
       description = "Doom Emacs";
@@ -285,15 +285,15 @@
       icon = "brave";
       description = "Brave";
     };
-    librewolf-incognito = {
-      binary = "librewolf";
+    firefox-incognito = {
+      binary = "firefox";
       args = [
         "-p"
         "Personal"
         "--private-window"
       ];
-      icon = "librewolf";
-      description = "LibreWolf Incognito";
+      icon = "firefox";
+      description = "Firefox Incognito";
     };
   };
 
@@ -422,17 +422,15 @@
       icon = "zsh";
       description = "Zsh Shell";
     };
-    /*
-      fish-shell = {
-        binary = "kitty";
-        args = [
-          "-e"
-          "fish"
-        ];
-        icon = "fish";
-        description = "Fish Shell";
-      };
-    */
+    fish-shell = {
+      binary = "kitty";
+      args = [
+        "-e"
+        "fish"
+      ];
+      icon = "fish";
+      description = "Fish Shell";
+    };
     nu-shell = {
       binary = "kitty";
       args = [

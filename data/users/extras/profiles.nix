@@ -1,48 +1,60 @@
 {
-  librewolf = {
+  firefox = {
     personal = {
       profile = "personal";
-      description = "Librewolf Personal";
+      description = "Firefox Personal";
     };
     media = {
       profile = "media";
-      description = "Librewolf Media";
+      description = "Firefox Media";
     };
     solenoidlabs = {
       profile = "solenoidlabs";
-      description = "Librewolf Solenoid Labs";
+      description = "Firefox Solenoid Labs";
     };
     uk = {
       profile = "uk";
-      description = "Librewolf UK";
+      description = "Firefox UK";
     };
     academic = {
       profile = "academic";
-      description = "Librewolf Academic";
+      description = "Firefox Academic";
     };
     segmentaim = {
       profile = "segmentaim";
-      description = "Librewolf Segmentaim";
+      description = "Firefox Segmentaim";
     };
     bsogood = {
       profile = "bsogood";
-      description = "Librewolf Bsogood";
+      description = "Firefox Bsogood";
     };
     phantom = {
       profile = "phantom";
-      description = "Librewolf Phantom";
+      description = "Firefox Phantom";
     };
     genai = {
       profile = "genai";
-      description = "Librewolf GenAI Dev";
+      description = "Firefox GenAI Dev";
+    };
+    genai-2 = {
+      profile = "genai-2";
+      description = "Firefox GenAI Dev 2";
+    };
+    amsterdam = {
+      profile = "amsterdam";
+      description = "Firefox Amsterdam";
     };
     private = {
       profile = "private";
-      description = "Librewolf Private";
+      description = "Firefox Private";
     };
     littlejohn = {
       profile = "littlejohn";
-      description = "Librewolf Little John";
+      description = "Firefox Little John";
+    };
+    atmosphericai = {
+      profile = "atmosphericai";
+      description = "Firefox Atmospheric AI";
     };
   };
 }

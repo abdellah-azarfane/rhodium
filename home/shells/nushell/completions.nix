@@ -4,25 +4,31 @@
   ...
 }:
 {
+  # 1. Enable Carapace (The Universal Completer)
+  programs.carapace = {
+    enable = true;
+    enableNushellIntegration = true;
+  };
+
   programs.nushell.extraConfig = ''
-    # External completer for getting completions from external sources
-    let carapace_completer = {|spans|
-      carapace $spans.0 nushell ...$spans | from json
-    }
+    # ---------------------------------------------------------
+    # 1. DEFINE COMPLETERS
+    # ---------------------------------------------------------
 
-    # Fish completer
-    let fish_completer = {|spans|
-      ${pkgs.fish}/bin/fish --command $'complete "--do-complete=($spans | str join " ")"'
-      | $"($in | lines | parse -r '^(?P<value>[^\t]+)\t?(?P<description>.*)?$')"
-      | each { |i| {value: $i.value, description: $i.description} }
-    }
-
-    # Zoxide completer
+    # Zoxide Completer (For smart directory jumping)
     let zoxide_completer = {|spans|
       $spans | skip 1 | zoxide query -l ...$in | lines | where {|x| $x != $env.PWD}
     }
 
-    # Custom completer that combines multiple sources
+    # Carapace Completer (The main worker)
+    # It automatically handles thousands of commands like git, cargo, docker, etc.
+    let carapace_completer = {|spans|
+      carapace $spans.0 nushell ...$spans | from json
+    }
+
+    # ---------------------------------------------------------
+    # 2. THE ROUTER (Decides which completer to use)
+    # ---------------------------------------------------------
     let external_completer = {|spans|
       let expanded_alias = scope aliases
         | where name == $spans.0
@@ -34,16 +40,19 @@
         $spans
       }
 
-      # Special handling for certain commands
+      # The Logic:
       match $spans.0 {
-        nu => $fish_completer
-        git => $fish_completer
-        z | zoxide => $zoxide_completer
+        # When typing 'z' or 'zi', ask Zoxide
+        z | zi | zoxide => $zoxide_completer
+        
+        # For EVERYTHING else, ask Carapace
         _ => $carapace_completer
       } | do $in $spans
     }
 
-    # Configure the external completer
+    # ---------------------------------------------------------
+    # 3. ACTIVATE
+    # ---------------------------------------------------------
     $env.config = ($env.config | merge {
       completions: {
         external: {
@@ -53,70 +62,34 @@
       }
     })
 
-    # Git completions
+    # ---------------------------------------------------------
+    # 4. MANUAL OVERRIDES (Faster than external tools)
+    # ---------------------------------------------------------
+
+    # Git Branches
     def "nu-complete git branches" [] {
       ^git branch -a | lines | each { |line| $line | str replace '^\* ' "" | str trim }
     }
 
+    # Git Remotes
     def "nu-complete git remotes" [] {
       ^git remote | lines | each { |line| $line | str trim }
     }
 
-    # Custom completions for git commands
+    # Custom Git Checkout
     export extern "git checkout" [
       branch?: string@"nu-complete git branches"
       --force(-f)
       --quiet(-q)
     ]
 
+    # Custom Git Push
     export extern "git push" [
       remote?: string@"nu-complete git remotes"
       branch?: string@"nu-complete git branches"
       --force(-f)
       --set-upstream(-u)
-      --quiet(-q)
       --verbose(-v)
-      --delete(-d)
     ]
-
-    # Docker completions
-    def "nu-complete docker containers" [] {
-      ^docker ps -a --format "{{.Names}}" | lines
-    }
-
-    def "nu-complete docker images" [] {
-      ^docker images --format "{{.Repository}}:{{.Tag}}" | lines | where $it != "<none>:<none>"
-    }
-
-    export extern "docker run" [
-      image: string@"nu-complete docker images"
-      --detach(-d)
-      --interactive(-i)
-      --tty(-t)
-      --rm
-      --name: string
-      --env(-e): string
-      --publish(-p): string
-      --volume(-v): string
-    ]
-
-    export extern "docker exec" [
-      container: string@"nu-complete docker containers"
-      --interactive(-i)
-      --tty(-t)
-      --env(-e): string
-    ]
-
-    # Custom path completer
-    def "nu-complete dirs" [] {
-      ls -la | where type == "dir" | get name
-    }
-
-    def "nu-complete files" [] {
-      ls -la | where type == "file" | get name
-    }
   '';
-
-  # If carapace is enabled, configure it
-  programs.carapace.enableNushellIntegration = lib.mkDefault true;
 }

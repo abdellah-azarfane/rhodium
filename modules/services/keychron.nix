@@ -29,12 +29,12 @@
     environment = {
       LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
       TZDIR = "${pkgs.tzdata}/share/zoneinfo";
-      XDG_BIN_HOME = "%h/.local/bin"; # %h expands to /home/zayron
+      XDG_BIN_HOME = "%h/.local/bin"; # %h expands to /home/abosafiya
     };
 
     serviceConfig = {
       Type = "simple";
-      User = "zayron"; # run as your user
+      User = "abosafiya"; # run as your user
       Nice = "-5";
       Restart = "no";
 
@@ -43,7 +43,7 @@
 
       # Launch KMonad with your layout
       ExecStart = ''
-        ${pkgs.kmonad}/bin/kmonad /home/zayron/.config/kmonad/keychron.kbd
+        ${pkgs.kmonad}/bin/kmonad /home/abosafiya/.config/kmonad/keychron.kbd
       '';
     };
   };
@@ -57,9 +57,9 @@
 #     after = [ "multi-user.target" ];
 #     serviceConfig = {
 #       Type = "simple";
-#       User = "zayron"; # Your username
+#       User = "abosafiya"; # Your username
 #       ExecStartPre = "${pkgs.bash}/bin/bash -c 'until [ -e /dev/input/by-id/usb-Keychron_Keychron_V1-event-kbd ]; do sleep 0.5; done'";
-#       ExecStart = "${pkgs.kmonad}/bin/kmonad /home/zayron/.config/kmonad/keychron.kbd";
+#       ExecStart = "${pkgs.kmonad}/bin/kmonad /home/abosafiya/.config/kmonad/keychron.kbd";
 #       Restart = "no";
 #       Nice = -5;
 #     };

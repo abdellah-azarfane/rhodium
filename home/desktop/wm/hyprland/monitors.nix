@@ -1,7 +1,7 @@
-{ host ? { }, lib, ... }:
+{ host, ... }:
 {
-  wayland.windowManager.hyprland.settings.monitor = lib.mkIf (host ? mainMonitor)
-    (
+  wayland.windowManager.hyprland.settings = {
+    monitor =
       let
         inherit (host.mainMonitor)
           monitorID
@@ -19,8 +19,8 @@
         # Main
         "${monitorID},${resolution}${refresh},0x0,${scale}"
 
-        # Example external monitor
-        "HDMI-A-1,preferred,auto,auto"
-      ]
-    );
+        # Common
+        "HDMI-A-1,3840x2160@60,0x0,1.5"
+      ];
+  };
 }

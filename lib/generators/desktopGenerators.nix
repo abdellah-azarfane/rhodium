@@ -5,10 +5,10 @@ let
 
   # Browser-specific argument templates
   browserConfigs = {
-    librewolf = {
+    firefox = {
       profileFlag = "-P";
       newWindowFlag = "-new-window";
-      executable = "librewolf";
+      executable = "firefox";
     };
 
     zen = {
@@ -36,17 +36,13 @@ let
   # Flatten nested attribute set into flat structure with combined keys
   flattenNestedAttrs =
     attrs:
-    lib.concatMapAttrs
-      (
-        topKey: topValue:
-        lib.mapAttrs'
-          (subKey: subValue: {
-            name = "${entryPrefix}-${topKey}-${subKey}";
-            value = subValue;
-          })
-          topValue
-      )
-      attrs;
+    lib.concatMapAttrs (
+      topKey: topValue:
+      lib.mapAttrs' (subKey: subValue: {
+        name = "${entryPrefix}-${topKey}-${subKey}";
+        value = subValue;
+      }) topValue
+    ) attrs;
 
   # Bookmark generator: Browser + profile + URL + special args
   mkBookmark =

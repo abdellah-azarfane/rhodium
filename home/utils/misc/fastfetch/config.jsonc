@@ -1,10 +1,10 @@
 // vim: ft=jsonc
 // Rhodium - Brutalist Fastfetch Configuration
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   // Logo configuration
   "logo": {
-    "source": "~/.local/share/ascii/calvin-m.txt",
+    "source": "$XDG_DATA_HOME/ascii/calvin-m.txt",
     "type": "auto",
     "color": {
       "1": "#C14043",
@@ -27,17 +27,9 @@
       "width": 12,
     },
     "bar": {
-      "char": {
-        "elapsed": "─",
-        "total": "─"
-      },
+      "char": "─",
       "width": 16,
-      "border": {
-        "left": "",
-        "right": "",
-        "leftElapsed": "",
-        "rightElapsed": ""
-      },
+      "border": false,
     },
     "percent": {
       "type": 1,

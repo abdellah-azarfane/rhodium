@@ -1,12 +1,14 @@
-{ config
-, lib
-, pkgs
-, ...
+{
+  config,
+  lib,
+  pkgs,
+  ...
 }:
 with lib;
 let
   pkgIf = name: lib.optionals (builtins.hasAttr name pkgs) [ pkgs.${name} ];
-  binOnly = pkg:
+  binOnly =
+    pkg:
     pkgs.buildEnv {
       name = "${lib.getName pkg}-bin";
       pathsToLink = [ "/bin" ];

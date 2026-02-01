@@ -16,15 +16,6 @@
         "[⣿]"
       ];
       tooltip = true;
-      tooltip-format = ''
-        ⚙ CPU
-        ━━━━━━━━━━━━━━━━━━
-        • Usage ⟶ {usage}%
-        • Load ⟶ {load}
-        • Avg Freq ⟶ {avg_frequency}GHz
-        • Max Freq ⟶ {max_frequency}GHz
-        • Min Freq ⟶ {min_frequency}GHz
-      '';
       on-click-right = "$XDG_BIN_HOME/launchers/launchers-btop.sh";
     };
   };

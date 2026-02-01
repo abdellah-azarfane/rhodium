@@ -6,7 +6,6 @@
     eza # Modern ls replacement
     file # Determine file types
     gawk # GNU's awk
-    libarchive # Compression library
     lsof # Tool to list open files
     ncdu # NCurses disk usage analyzer
     p7zip # 7-Zip archiver

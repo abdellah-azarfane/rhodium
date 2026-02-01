@@ -1,7 +1,7 @@
 {
   users = {
     user_001 = {
-      username = "zayron";
+      username = "abosafiya";
       fullName = "Abdellah Azarfane";
       emailMain = "abdellahazarfane@proton.me";
       extraGroups = [

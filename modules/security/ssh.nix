@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ ... }:
 {
   services.openssh = {
     enable = true;
@@ -10,8 +10,12 @@
       PubkeyAuthentication = true;
     };
   };
-  services.gnome.gcr-ssh-agent.enable = lib.mkForce false;
+
   programs.ssh = {
     startAgent = true;
   };
+
+  # Disable gcr-ssh-agent to avoid conflict with programs.ssh.startAgent
+  # (gcr-ssh-agent is auto-enabled by programs.niri via gnome-keyring)
+  services.gnome.gcr-ssh-agent.enable = false;
 }

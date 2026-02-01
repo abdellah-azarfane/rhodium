@@ -23,7 +23,6 @@ in
     home = "/home/${user_001_data.username}";
     # openssh = {
     #   authorizedKeys.keys = [
-    #     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJGHxTVVJeq9L0J2K0XiT/z14A/8oE86QwCZJRnmZtxr pabloaguirrenck@protonmail.com"
     #   ];
     # };
   };
@@ -31,7 +30,7 @@ in
   # NOTE: Required for devenv
   nix.settings.trusted-users = [
     "root"
-    "zayron"
+    "abosafiya"
   ];
 
   home-manager.backupFileExtension = "backup"; # HACK: Required since hm activation was sometimes faulty

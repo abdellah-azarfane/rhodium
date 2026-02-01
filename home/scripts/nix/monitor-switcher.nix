@@ -64,7 +64,7 @@ let
   desktopAutostart = pkgs.writeShellScript "desktop-autostart" ''
     #!${pkgs.runtimeShell}
     # Wallpaper
-    # ${pkgs.hyprpaper}/bin/hyprpaper &
+    ${pkgs.hyprpaper}/bin/hyprpaper &
     # Network manager applet
     ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
     # Bluetooth applet

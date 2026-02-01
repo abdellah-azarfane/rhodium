@@ -1,24 +1,21 @@
 { pkgs, ... }:
-let
-  c = (import ../../../assets/colors/kanso-palette.nix).rgba;
-in
 {
   programs.fuzzel = {
     settings = {
       border = {
-        radius = 10;
-        width = 2;
+        radius = 0;
+        width = 1;
       };
       colors = {
-        background = c.color0;
-        border = c.color18;
-        match = c.color12;
-        placeholder = c.color8;
-        prompt = c.color8;
-        selection = c.color24;
-        selection-match = c.color12;
-        selection-text = c.color23;
-        text = c.color15;
+        background = "#20131eff";
+        border = "#7d3d52ff";
+        match = "#8e4057ff";
+        placeholder = "#586e75ff";
+        prompt = "#586e75ff";
+        selection = "#462941ff";
+        selection-match = "#8e4057ff";
+        selection-text = "#f2f2f2ff";
+        text = "#f2f2f2ff";
       };
       dmenu = {
         exit-immediately-if-empty = false;

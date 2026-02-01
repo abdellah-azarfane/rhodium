@@ -25,90 +25,125 @@ final: prev: {
       let
         # Moved _fontBuildData here to scope it locally to the buildPhase
         _fontBuildData = {
-          jetbrains = {
-            source = prev.fetchFromGitHub {
-              owner = "JetBrains";
-              repo = "JetBrainsMono";
-              rev = "v2.304";
-              sha256 = "sha256-SW9d5yVud2BWUJpDOlqYn1E1cqicIHdSZjbXjqOAQGw=";
-            };
+          berkeley = {
+            source = inputs.iridium-rh.packages.${prev.stdenv.hostPlatform.system}.berkeley-mono;
             fonts = {
-              "fonts/ttf/JetBrainsMono-Bold.ttf" = {
+              "BerkeleyMonoRh-Black-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-BoldItalic.ttf" = {
+              "BerkeleyMonoRh-Black.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-ExtraBold.ttf" = {
+              "BerkeleyMonoRh-Bold-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-ExtraBoldItalic.ttf" = {
+              "BerkeleyMonoRh-Bold.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-ExtraLight.ttf" = {
+              "BerkeleyMonoRh-Book-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-ExtraLightItalic.ttf" = {
+              "BerkeleyMonoRh-Book.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-Italic.ttf" = {
+              "BerkeleyMonoRh-ExtraBold-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-Light.ttf" = {
+              "BerkeleyMonoRh-ExtraBold.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-LightItalic.ttf" = {
+              "BerkeleyMonoRh-ExtraLight-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-Medium.ttf" = {
+              "BerkeleyMonoRh-ExtraLight.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-MediumItalic.ttf" = {
+              "BerkeleyMonoRh-Light-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-Regular.ttf" = {
+              "BerkeleyMonoRh-Light.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-SemiBold.ttf" = {
+              "BerkeleyMonoRh-Medium-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-SemiBoldItalic.ttf" = {
+              "BerkeleyMonoRh-Medium.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-Thin.ttf" = {
+              "BerkeleyMonoRh-Oblique.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
               };
-              "fonts/ttf/JetBrainsMono-ThinItalic.ttf" = {
+              "BerkeleyMonoRh-Regular.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-Retina-Oblique.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-Retina.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-SemiBold-Oblique.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-SemiBold.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-SemiLight-Oblique.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-SemiLight.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-Thin-Oblique.ttf" = {
+                patch = true;
+                mono = false;
+                nonprop = true;
+              };
+              "BerkeleyMonoRh-Thin.ttf" = {
                 patch = true;
                 mono = false;
                 nonprop = true;
@@ -201,7 +236,7 @@ final: prev: {
     '';
 
     meta = with prev.lib; {
-      description = "JetBrains Mono fonts with selective Nerd Fonts patching for Rhodium";
+      description = "Rhodium fonts with selective Nerd Fonts patching";
       platforms = platforms.all;
     };
   };

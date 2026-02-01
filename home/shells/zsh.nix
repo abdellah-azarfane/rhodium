@@ -21,7 +21,7 @@ in
       ];
     };
 
-    shellAliases = aliases;
+   shellAliases = aliases;
 
     syntaxHighlighting = {
       enable = true;
@@ -178,9 +178,7 @@ in
       setopt hist_expire_dups_first
       setopt hist_verify
 
-      if [[ -r ~/.p10k.zsh ]]; then
-        source ~/.p10k.zsh
-      fi
+      source ~/.p10k.zsh
 
       # Use fd (https://github.com/sharkdp/fd) for listing path candidates.
       # - The first argument to the function ($1) is the base path to start traversal

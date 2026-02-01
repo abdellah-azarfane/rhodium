@@ -2,10 +2,10 @@
   apps = {
     # Core
     shell = "zsh";
-    shelAlt = "nu";
-    terminal = "kitty";
-    terminalAlt = "ghostty";
-    browser = "librewolf";
+    shelAlt = "fish";
+    terminal = "wezterme";
+    terminalAlt = "kitty";
+    browser = "firefox";
     browserAlt = "brave";
     wm = "hyprland";
 
@@ -28,7 +28,7 @@
   };
 
   profiles = {
-    librewolf = {
+    firefox = {
       personal = "Personal";
       media = "Media";
       solenoidlabs = "SolenoidLabsPablo";
@@ -37,9 +37,12 @@
       bsogood = "Bsogood";
       phantom = "TheHumanPalace";
       genai = "GenAI";
+      genai-2 = "GenAI-2";
+      amsterdam = "Amsterdam";
       ultra = "Ultra";
       segmentaim = "Segmentaim";
       littlejohn = "Little-John";
+      atmosphericai = "AtmosphericAI";
       private = "Private";
     };
 

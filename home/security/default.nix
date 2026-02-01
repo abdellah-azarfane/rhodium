@@ -4,6 +4,6 @@
     ./auth
     ./encryption
     ./network
-    # ./secrets
+    ./secrets
   ];
 }

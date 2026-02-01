@@ -3,8 +3,7 @@
   icon = {
     prepend_globs = [
       {
-        name = "*.rh/";
-        "if" = "dir";
+        url = "*/*.rh/";
         text = "󰊕";
         fg = "#BF3F42";
       }
@@ -447,22 +446,11 @@
     cwd = {
       fg = "#E6C384";
     };
-    hovered = {
-      reversed = true;
-    };
-    preview_hovered = {
-      reversed = true;
-    };
     find_keyword = {
       fg = "#B98D7B";
       bg = "#090E13";
     };
     find_position = { };
-    tab_active = {
-      reversed = true;
-    };
-    tab_inactive = { };
-    tab_width = 1;
     count_copied = {
       fg = "#090E13";
       bg = "#87A987";
@@ -478,6 +466,28 @@
     border_symbol = "│";
     border_style = {
       fg = "#C5C9C7";
+    };
+  };
+
+  # Tab bar styling - clean black/white with no rounded corners
+  tabs = {
+    active = {
+      fg = "#090E13";
+      bg = "#C5C9C7";
+      bold = true;
+    };
+    inactive = {
+      fg = "#6B7E84";
+      bg = "#090E13";
+    };
+    # Square separators - no rounded corners
+    sep_inner = {
+      open = " ";
+      close = " ";
+    };
+    sep_outer = {
+      open = "";
+      close = "";
     };
   };
 
@@ -640,6 +650,20 @@
     };
     title_error = {
       fg = "#E46876";
+    };
+  };
+
+  indicator = {
+    # Square corners instead of rounded
+    padding = {
+      open = "█";
+      close = "█";
+    };
+    current = {
+      reversed = true;
+    };
+    preview = {
+      reversed = true;
     };
   };
 

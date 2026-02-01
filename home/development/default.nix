@@ -1,11 +1,9 @@
 { ... }:
 {
   imports = [
-    ./android
     ./async
     ./cloud
     ./databases
-    ./hktools
     ./infra
     ./languages
     ./misc

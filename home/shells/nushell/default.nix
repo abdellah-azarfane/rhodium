@@ -2,10 +2,10 @@
 {
   imports = [
     ./aliases.nix
-    # ./functions.nix
-    # ./base.nix
+    ./functions.nix
+    ./base.nix
     ./env.nix
-    # ./theme.nix
-    # ./completions.nix
+    ./theme.nix
+    ./completions.nix
   ];
 }

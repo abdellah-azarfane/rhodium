@@ -1,15 +1,11 @@
-{ config, lib, pkgs, ... }:
-let
-  fastfetchConfig = import ./fastfetch/config.nix { inherit lib config; };
-in
+{ pkgs, ... }:
 {
-  home.packages = [ pkgs.fastfetch ];
-
-  xdg.dataFile."ascii/calvin-m.txt".source = ../../../assets/calvin-m.txt;
-  xdg.dataFile."ascii/rhodium-neo.txt".source = ../../../assets/rhodium-neo.txt;
+  home.packages = with pkgs; [
+    fastfetch # Faster disfetch
+  ];
 
   xdg.configFile."fastfetch/config.jsonc" = {
-    text = builtins.toJSON fastfetchConfig;
+    source = ./fastfetch/config.jsonc;
     force = true;
   };
 }

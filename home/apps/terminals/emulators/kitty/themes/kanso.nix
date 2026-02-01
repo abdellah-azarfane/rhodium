@@ -1,7 +1,4 @@
 { ... }:
-let
-  c = (import ../../../../../assets/colors/kanso-palette.nix).base;
-in
 {
   programs.kitty = {
     settings = {
@@ -19,26 +16,26 @@ in
       inactive_tab_background = "#090E13";
       inactive_tab_foreground = "#A4A7A4";
       # Normal
-      color0 = c.color0;
-      color1 = c.color1;
-      color2 = c.color2;
-      color3 = c.color3;
-      color4 = c.color4;
-      color5 = c.color5;
-      color6 = c.color6;
-      color7 = c.color7;
+      color0 = "#0d0c0c";
+      color1 = "#c4746e";
+      color2 = "#8a9a7b";
+      color3 = "#c4b28a";
+      color4 = "#8ba4b0";
+      color5 = "#a292a3";
+      color6 = "#8ea4a2";
+      color7 = "#C8C093";
       # Bright
-      color8 = c.color8;
-      color9 = c.color9;
-      color10 = c.color10;
-      color11 = c.color11;
-      color12 = c.color12;
-      color13 = c.color13;
-      color14 = c.color14;
-      color15 = c.color15;
+      color8 = "#A4A7A4";
+      color9 = "#E46876";
+      color10 = "#87a987";
+      color11 = "#E6C384";
+      color12 = "#7FB4CA";
+      color13 = "#938AA9";
+      color14 = "#7AA89F";
+      color15 = "#C5C9C7";
       # Extended
-      color16 = c.color16;
-      color17 = c.color17;
+      color16 = "#b6927b";
+      color17 = "#b98d7b";
     };
   };
 }

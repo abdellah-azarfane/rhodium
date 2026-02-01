@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    thunar
-    thunar-volman
-    thunar-archive-plugin
+    xfce.thunar
+    xfce.thunar-volman
+    xfce.thunar-archive-plugin
   ];
 }

@@ -1,3 +1,16 @@
+# Rhodium - Firefox Binary Preloader Service
+#
+# Uses vmtouch to lock Firefox binaries and shared libraries in RAM.
+# This ensures instant startup by keeping all code in physical memory.
+#
+# How it works:
+# - vmtouch memory-maps the Firefox installation directory
+# - Uses mlock() to pin pages in physical RAM (prevents swapping)
+# - Runs as daemon, keeping files locked until service stops
+# - When you launch Firefox, binaries are already in RAM = instant startup
+#
+# Memory impact: ~150-300MB for Firefox libs (less than running Firefox)
+# This is NOT the "hidden window" hack - no Firefox process runs
 {
   config,
   lib,
@@ -10,31 +23,38 @@ let
 in
 {
   options.userExtraServices.rh-firefox-preload = {
-    enable = mkEnableOption "Firefox preloader for faster startup";
+    enable = mkEnableOption "Firefox binary preloader using vmtouch (instant startup)";
   };
+
   config = mkIf cfg.enable {
+    # Ensure vmtouch is available
+    home.packages = [ pkgs.vmtouch ];
+
     systemd.user.services.rh-firefox-preload = {
       Unit = {
-        Description = "Firefox preloader";
-        PartOf = [ "graphical-session.target" ];
-        After = [ "graphical-session-pre.target" ];
+        Description = "Firefox binary preloader (vmtouch memory lock)";
+        Documentation = "https://hoytech.com/vmtouch/";
+        # Start early, before graphical session fully loads
+        After = [ "basic.target" ];
       };
       Service = {
-        Type = "exec";
-        # Start minimized with a blank page
-        ExecStart = "${pkgs.firefox}/bin/firefox --headless --width 1 --height 1 about:blank";
-        ExecStop = "${pkgs.procps}/bin/pkill firefox";
+        Type = "simple";
+        # -t: touch (load into page cache)
+        # -l: lock pages in physical memory (mlock)
+        # -q: quiet mode
+        # -f: follow symlinks
+        # Target the entire Firefox package in nix store
+        ExecStart = "${pkgs.vmtouch}/bin/vmtouch -tlqf ${pkgs.firefox}";
+        # vmtouch with -l blocks indefinitely, keeping files locked
+        # When service stops, memory is released
         Restart = "on-failure";
-        RestartSec = 10;
-        # Higher memory limit for Firefox
-        MemoryLimit = "2G";
-        Environment = [
-          "MOZ_ENABLE_WAYLAND=1"
-          "WAYLAND_DISPLAY=wayland-1"
-        ];
+        RestartSec = 5;
+        # Nice value - low priority for the daemon itself
+        Nice = 19;
+        IOSchedulingClass = "idle";
       };
       Install = {
-        WantedBy = [ "graphical-session.target" ];
+        WantedBy = [ "default.target" ];
       };
     };
   };
