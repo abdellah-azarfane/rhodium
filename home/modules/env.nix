@@ -62,12 +62,10 @@ in
     # Main dirs
     HOME_ACADEMIC = dirs.academic;
     HOME_DOWNLOADS = dirs.downloads;
-    HOME_SOLENOIDLABS = dirs.solenoidLabs;
     HOME_PROFESSIONAL = dirs.professional;
     HOME_VAULTS = dirs.vaults;
 
     # Dev
-    DEV_PHANTOM = derivedDirs.devPhantom;
     DEV_UTILS = derivedDirs.devUtils;
     RHODIUM = derivedDirs.devRhodium;
     DEV_ALLOYS = derivedDirs.devAlloys;

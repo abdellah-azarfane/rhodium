@@ -3,7 +3,7 @@
   imports = [
     # ./cursor.nix
     # ./lapce.nix
-    ./antigravity.nix
+    ./antigravity
     ./vscodium.nix
     ./rstudio.nix
     ./texmaker.nix

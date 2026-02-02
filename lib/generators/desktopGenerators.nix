@@ -38,6 +38,11 @@ let
     attrs:
     lib.concatMapAttrs (
       topKey: topValue:
+     if lib.isAttrs topValue && (topValue ? description) && (topValue ? url || topValue ? binary) then
+        {
+        "${entryPrefix}-${topKey}" = topValue;
+        }
+       else
       lib.mapAttrs' (subKey: subValue: {
         name = "${entryPrefix}-${topKey}-${subKey}";
         value = subValue;

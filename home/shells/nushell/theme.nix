@@ -86,7 +86,7 @@
     # ---------------------------------------------------------
     # 3. LS_COLORS (The Fix)
     # ---------------------------------------------------------
-    # We use string interpolation ${...} to point to the exact vivid binary
+    # We use string interpolation to point to the exact vivid binary
     $env.LS_COLORS = (${pkgs.vivid}/bin/vivid generate mocha)
   '';
 }
