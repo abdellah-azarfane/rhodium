@@ -36,7 +36,7 @@ in
       };
 
       input = {
-        kb_layout = "gb,us,es";
+        kb_layout = "us,fr,ara";
         kb_variant = "";
         kb_model = "";
         kb_options = "grp:win_space_toggle";
@@ -46,7 +46,7 @@ in
         follow_mouse = 1;
         sensitivity = -0.3;
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
       };
 

@@ -7,13 +7,13 @@
     terminalAlt = "kitty";
     browser = "firefox";
     browserAlt = "brave";
-    wm = "hyprland";
+    wm = "niri";
 
     # Files
     editor = "nvim";
     editorAlt = "hx";
     ide = "zeditor";
-    ideAlt = "code";
+    ideAlt = "codium";
     filesTerminal = "yazi";
     filesGraphic = "thunar";
 
@@ -31,8 +31,7 @@
     firefox = {
       personal = "Personal";
       media = "Media";
-      solenoidlabs = "SolenoidLabsPablo";
-      uk = "UnitedKingdom";
+      fr = "France";
       academic = "Academic";
       bsogood = "Bsogood";
       phantom = "TheHumanPalace";
@@ -41,7 +40,6 @@
       amsterdam = "Amsterdam";
       ultra = "Ultra";
       segmentaim = "Segmentaim";
-      littlejohn = "Little-John";
       atmosphericai = "AtmosphericAI";
       private = "Private";
     };

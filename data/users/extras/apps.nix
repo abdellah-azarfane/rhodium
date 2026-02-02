@@ -33,11 +33,11 @@
       icon = "zeditor";
       description = "Zeditor";
     };
-    code = {
-      binary = "code";
+    codium = {
+      binary = "codium";
       args = [ ];
-      icon = "code";
-      description = "VS Code";
+      icon = "codium";
+      description = "VS Codium";
     };
     emacs = {
       binary = "/home/abosafiya/.config/emacs/bin/doom";

@@ -53,7 +53,7 @@
     asusKeyboardBacklight.enable = true;
     laptopLid.enable = true;
   };
-
+  asus.enable = true;
   # Extra rules
   extraRules = {
     keychronUdev.enable = true;

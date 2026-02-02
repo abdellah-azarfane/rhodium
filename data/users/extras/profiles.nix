@@ -8,13 +8,9 @@
       profile = "media";
       description = "Firefox Media";
     };
-    solenoidlabs = {
-      profile = "solenoidlabs";
-      description = "Firefox Solenoid Labs";
-    };
-    uk = {
-      profile = "uk";
-      description = "Firefox UK";
+    fr = {
+      profile = "fr";
+      description = "Firefox France";
     };
     academic = {
       profile = "academic";
@@ -27,10 +23,6 @@
     bsogood = {
       profile = "bsogood";
       description = "Firefox Bsogood";
-    };
-    phantom = {
-      profile = "phantom";
-      description = "Firefox Phantom";
     };
     genai = {
       profile = "genai";
@@ -47,10 +39,6 @@
     private = {
       profile = "private";
       description = "Firefox Private";
-    };
-    littlejohn = {
-      profile = "littlejohn";
-      description = "Firefox Little John";
     };
     atmosphericai = {
       profile = "atmosphericai";

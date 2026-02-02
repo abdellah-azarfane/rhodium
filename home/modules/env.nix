@@ -12,7 +12,6 @@ let
     downloads = "${homeDir}/downloads";
     pendings = "${homeDir}/pendings";
     professional = "${homeDir}/professional";
-    solenoidLabs = "${homeDir}/solenoid-labs";
     vaults = "${homeDir}/vaults";
   };
 
@@ -25,7 +24,6 @@ let
 
   derivedDirs = {
     # Dev
-    devPhantom = "${dirs.dev}/phantom";
     devRhodium = "${dirs.dev}/rhodium";
     devAlloys = "${dirs.dev}/alloys.rhf";
     devChiaroscuro = "${dirs.dev}/chiaroscuro.rht";
