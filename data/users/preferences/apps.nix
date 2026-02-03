@@ -3,7 +3,7 @@
     # Core
     shell = "zsh";
     shelAlt = "fish";
-    terminal = "wezterme";
+    terminal = "wezterm";
     terminalAlt = "kitty";
     browser = "firefox";
     browserAlt = "brave";

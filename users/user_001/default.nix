@@ -86,10 +86,6 @@
       haskell.enable = true;
     };
   };
-  programs.development = {
-    ml.enable = true;
-    opsec.enbale = true;
-    };
 
   # --- User Config ---
   home = {
