@@ -55,7 +55,7 @@ in
     input = {
       keyboard = {
         xkb = {
-          layout = "us,gb,es";
+          layout = "us,fr,ara";
           options = "grp:win_space_toggle";
         };
         repeat-delay = 300;
