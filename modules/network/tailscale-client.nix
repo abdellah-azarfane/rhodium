@@ -28,7 +28,7 @@
   #   serviceConfig = {
   #     Type = "oneshot";
   #     RemainAfterExit = true;
-  #     ExecStart = "${pkgs.tailscale}/bin/tailscale up --login-server=https://headscale.rhodium.sh --accept-routes";
+  #     ExecStart = "${pkgs.tailscale}/bin/tailscale up --login-server= --accept-routes";
   #   };
   # };
 }

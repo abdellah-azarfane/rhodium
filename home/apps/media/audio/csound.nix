@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.apps.media.audio.csound;
+  cfg = config.ix.apps.media.audio.csound;
 in
 {
-  options.apps.media.audio.csound = {
+  options.ix.apps.media.audio.csound = {
     enable = lib.mkEnableOption "Enable CSound";
   };
 

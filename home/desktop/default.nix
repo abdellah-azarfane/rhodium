@@ -9,6 +9,7 @@
     ./lockscreen
     ./notifications
     ./portals
+    ./selector.nix
     ./widgets
     ./wallpaper
     ./wm

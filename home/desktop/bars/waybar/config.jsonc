@@ -18,7 +18,7 @@
     "group/thermals",
     "battery",
     "custom/separator",
-    "niri/language",
+    "hyprland/language",
     "keyboard-state#capslock",
   ],
 
@@ -50,13 +50,14 @@
   "custom/thm-cpu": {
     "exec": "$XDG_BIN_HOME/waybar/waybar-thermals.sh",
     "return-type": "json",
-    "format": "△ {text}",
+    "format": "○ {text}",
     "tooltip": true,
     "tooltip-format": "CPU",
     "interval": 1,
   },
 
   // ── details (one module per metric) ──────────────────────────────────────────
+  /*
   "custom/thm-amd": {
     "exec": "$XDG_BIN_HOME/waybar/waybar-thermals.sh amd",
     "return-type": "json",
@@ -65,10 +66,11 @@
     "tooltip-format": "AMD GPU",
     "interval": 1,
   },
+  */
   "custom/thm-nvidia": {
     "exec": "$XDG_BIN_HOME/waybar/waybar-thermals.sh nvidia",
     "return-type": "json",
-    "format": "G {text}",
+    "format": "◍ {text}",
     "tooltip": true,
     "tooltip-format": "Nvidia GPU",
     "interval": 1,
@@ -92,7 +94,7 @@
   "custom/thm-pwr": {
     "exec": "$XDG_BIN_HOME/waybar/waybar-thermals.sh gpupower",
     "return-type": "json",
-    "format": "󱒀 G {text}",
+    "format": "◍ {text}",
     "tooltip": true,
     "tooltip-format": "GPU Wattage",
     "interval": 1,
@@ -130,18 +132,11 @@
     "tooltip": false,
   },
 
-  "custom/rhodium": {
-    "format": "Rh",
-    "tooltip": false,
-    "on-click": "fuzzel",
-    "on-click-right": "fuzzel",
-  },
-
-  "niri/workspaces": {
+  "hyprland/workspaces": {
     "format": "●",
     "on-click": "activate",
-    "on-scroll-up": "niri msg action focus-workspace-up",
-    "on-scroll-down": "niri msg action focus-workspace-down",
+    "on-scroll-up": "hyprland msg action focus-workspace-left",
+    "on-scroll-down": "hyprland msg action focus-workspace-right",
     "smooth-scrolling-threshold": 2.0,
   },
 
@@ -189,7 +184,7 @@
     "interval": 1,
     "format-wifi": "{bandwidthDownBytes:>} ↓",
     "format-linked": "≏ No IP",
-    "format-disconnected": "⌽",
+    "format-disconnected": "∅",
     "tooltip": false,
   },
 
@@ -223,10 +218,10 @@
 
   "bluetooth": {
     "format": " {num_connections} {status}",
-    "format-disabled": "0 ▽",
-    "format-off": "0 ▼",
-    "format-on": "0 △",
-    "format-connected": "{num_connections} ▲",
+    "format-disabled": "0 ∅",
+    "format-off": "0 ⊘",
+    "format-on": "0 ⋊",
+    "format-connected": "{num_connections} ⋈",
     "tooltip": true,
     "tooltip-format": "⋊ Bluetooth\n━━━━━━━━━━━━━━━━━━\n• {controller_alias} ⟶ {controller_address}\n• {num_connections} connected",
     "tooltip-format-connected": "⋊ Bluetooth\n━━━━━━━━━━━━━━━━━━\n• {controller_alias} ⟶ {controller_address}\n\n• {device_enumerate}",
@@ -245,32 +240,34 @@
       "critical": 15,
     },
     "on-click-right": "$XDG_BIN_HOME/fuzzel/fuzzel-power.sh",
-    "format": "Ω {capacity}%",
-    "format-alt": "Ω {capacity}% {icon}",
-    "format-charging": "{capacity}% 𝥽",
-    "format-plugged": "{capacity}% 𝥽",
+    "format": "{icon} {capacity}%",
+    "format-alt": "{icon} {capacity}%",
+    "format-charging": "󰂄 {capacity}%",
+    "format-plugged": "󰚥 {capacity}%",
     "format-icons": [
-      "[⠀]",
-      "[⢀]",
-      "[⣀]",
-      "[⣠]",
-      "[⣤]",
-      "[⣴]",
-      "[⣶]",
-      "[⣾]",
-      "[⣿]",
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹",
     ],
     "tooltip": true,
-    "tooltip-format": "Ω Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}%\n• Power Draw ⟶ {power}W\n• Time Remaining ⟶ {time}\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
-    "tooltip-format-charging": "Ω Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}% [𝥽 Charging]\n• Power Input ⟶ {power}W\n• Time to Full ⟶ {time}\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
-    "tooltip-format-plugged": "Ω Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}% [𝥽 Plugged]\n• Power Draw ⟶ {power}W\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
-    "tooltip-format-full": "Ω Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}% [● Full]\n• Power Draw ⟶ {power}W\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
+    "tooltip-format": "󰂎 Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}%\n• Power Draw ⟶ {power}W\n• Time Remaining ⟶ {time}\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
+    "tooltip-format-charging": "󰂄 Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}% [Charging]\n• Power Input ⟶ {power}W\n• Time to Full ⟶ {time}\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
+    "tooltip-format-plugged": "󰚥 Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}% [Plugged]\n• Power Draw ⟶ {power}W\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
+    "tooltip-format-full": "󰁹 Battery\n━━━━━━━━━━━━━━━━━━\n• Battery ⟶ {capacity}% [Full]\n• Power Draw ⟶ {power}W\n• Health ⟶ {health}%\n• Charge Cycles ⟶ {cycles}",
   },
 
   "cpu": {
     "interval": 1,
-    "format": "⚙ {usage}%",
-    "format-alt": "⚙ U {usage}% L {load}% AVG {avg_frequency}GHz MAX {max_frequency}GHz MIN {min_frequency}GHz",
+    "format": "○ {usage}%",
+    "format-alt": "○ U {usage}% L {load}% AVG {avg_frequency}GHz MAX {max_frequency}GHz MIN {min_frequency}GHz",
     "format-icons": [
       "[⠀]",
       "[⢀]",
@@ -309,10 +306,10 @@
   "disk": {
     "interval": 15,
     "path": "/",
-    "format": "⬢ {percentage_used}%",
-    "format-alt": "⬢ {free} / {total}",
+    "format": "⟐ {percentage_used}%",
+    "format-alt": "⟐ {free} / {total}",
     "tooltip": true,
-    "tooltip-format": "⬢ Disk Storage\n━━━━━━━━━━━━━━━━━━\n• Usage ⟶ {used} / {total} ({percentage_used}%)\n• Available ⟶ {free} ({percentage_free}%)\n• Mount Point ⟶ {path}",
+    "tooltip-format": "⟐ Disk Storage\n━━━━━━━━━━━━━━━━━━\n• Usage ⟶ {used} / {total} ({percentage_used}%)\n• Available ⟶ {free} ({percentage_free}%)\n• Mount Point ⟶ {path}",
     "on-click-right": "thunar /",
     "states": {
       "warning": 70,
@@ -321,8 +318,8 @@
   },
 
   "backlight": {
-    "format": "☀ {percent}%",
-    "format-alt": "☀ {percent}% {icon}",
+    "format": "⊙ {percent}%",
+    "format-alt": "⊙ {percent}% {icon}",
     "format-icons": ["[-]", "[=]", "[≡]", "[≣]"],
   },
 
@@ -344,7 +341,7 @@
   "wireplumber#source": {
     "node-type": "Audio/Source",
     "format": "◌ {volume}% {icon}",
-    "format-muted": "◌ {volume}% [⌽]",
+    "format-muted": "◌ {volume}% [∅]",
     "format-icons": ["[-]", "[=]", "[≡]", "[≣]"],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
     "on-click-right": "helvum",
@@ -384,4 +381,3 @@
     },
   },
 }
-

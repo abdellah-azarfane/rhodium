@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.apps.media.audio.tidal;
+  cfg = config.ix.apps.media.audio.tidal;
 in
 {
-  options.apps.media.audio.tidal = {
+  options.ix.apps.media.audio.tidal = {
     enable = lib.mkEnableOption "Enable TIDAL CLI and GUI tools";
   };
 

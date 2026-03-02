@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
+let
+  ppdEnabled = config.services.power-profiles-daemon.enable or false;
+in
 {
-  environment.systemPackages = with pkgs; [ auto-cpufreq ];
-  services.auto-cpufreq.enable = true;
-  services.tlp = {
-   enable = true;
-     settings = {
+  config = lib.mkMerge [
+    (lib.mkIf (!ppdEnabled) {
+      environment.systemPackages = with pkgs; [ auto-cpufreq ];
+      services.auto-cpufreq.enable = lib.mkDefault true;
+      services.tlp = {
+        enable = lib.mkDefault true;
+        settings = {
     CPU_SCALING_GOVERNOR_ON_AC = "performance";
     CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
     CPU_ENERGY_PERF_POLICY_ON_BAT = "balance";
@@ -45,7 +50,8 @@
     NVREG_POWERMIZER_MODE_ON_BAT = "0";
     NVIDIA_PERSISTENT_MODE_ON_AC = 1;
     NVIDIA_PERSISTENT_MODE_ON_BAT = 0;
-  };
-};
-
+        };
+      };
+    })
+  ];
 }

@@ -1,12 +1,6 @@
 {
-  host,
-  userPreferences,
   ...
 }:
-let
-  preferredApps = userPreferences.apps;
-  preferredBehaviour = userPreferences.behaviour;
-in
 {
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -14,70 +8,28 @@ in
       # ----------------------------------------
 
       # Tier 1
-      "$mainMod, W, exec, ${preferredApps.terminal}"
-      "$mainMod, B, exec, ${preferredApps.browser}" # TODO: Glue to main browser profile declaratively
-      "$mainMod, F, exec, ${preferredApps.terminal} -e yw"
-      "$mainMod, E, exec, ${preferredApps.terminal} -e vw"
-      "$mainMod, I, exec, ${preferredApps.ide}"
-      "$mainMod, A, exec, ~/.local/bin/rofi-launcher.sh"
-      "$mainMod, S, exec, ~/.local/bin/utils-screenshot.sh"
+      "$mainMod, W, exec, wezterm"
+      "$mainMod, B, exec, brave" # TODO: Glue to main browser profile declaratively
+      "$mainMod, F, exec, toggle fullscreen"
+      "$mainMod, E, exec, wezterm -e vw"
+      "$mainMod, I, exec, zeditor"
 
       # Tier 2 (Fallbacks)
-      "$mainMod SHIFT, W, exec, ${preferredApps.terminalAlt}"
-      "$mainMod SHIFT, B, exec, ${preferredApps.browserAlt}"
-      "$mainMod SHIFT, F, exec, ${preferredApps.filesGraphic}"
-      "$mainMod SHIFT, E, exec, ${preferredApps.terminal} -e ${preferredApps.editorAlt}"
-      "$mainMod SHIFT, I, exec, ${preferredApps.ideAlt}"
-      # "$mainMod SHIFT, A, exec, ~/.local/bin/rofi-jumper.sh"
-      # "$mainMod SHIFT, S, exec, ~/.local/bin/utils-screenshot.sh --area"
-      # "$mainMod SHIFT, M, exec, ~/.local/bin/utils-screenshot.sh"
-      # "$mainMod SHIFT, H, exec, ~./local/bin/utils-color-picker.sh"
+      "$mainMod SHIFT, W, exec, ghostty"
+      "$mainMod SHIFT, B, exec, librewolf"
+      "$mainMod SHIFT, F, exec, dolphin"
+   #   "$mainMod SHIFT, E, exec, ${preferredApps.terminal} -e ${preferredApps.editorAlt}"
+   #   "$mainMod SHIFT, I, exec, ${preferredApps.ideAlt}"
 
       # Tier 3 (Secondary menus & appearance)
-      "$mainMod ALT, P, exec, ~/.local/bin/rofi-power.sh"
-      "$mainMod ALT, N, exec, ~/.local/bin/rofi-nixos.sh"
-      "$mainMod ALT, B, exec, ~/.local/bin/rofi-bluetooth.sh"
-      "$mainMod ALT, W, exec, ~/.local/bin/rofi-wifi.sh"
-      "$mainMod ALT, D, exec, ~/.local/bin/rofi-devices.sh"
-      "$mainMod ALT, M, exec, ~/.local/bin/rofi-monitors.sh"
-      # "$mainMod, ALT, W, exec, ~./local/bin/rofi-wallpaper.sh"
-      # "$mainMod, ALT, S, exec, ~/.local/bin/utils-screenshot.sh" # Add an area arg
-
-      # Hyprpaper
-      # ----------------------------------------
-
-      # TODO: Eventually we do this using map. For now we go for the simpler route
-      "$mainMod ALT, 1, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-01.jpg"
-      "$mainMod ALT, 2, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-02.jpg"
-      "$mainMod ALT, 3, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-03.jpg"
-      "$mainMod ALT, 4, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-04.jpg"
-      "$mainMod ALT, 5, exec, hyprctl hyprpaper wallpaper ${host.mainMonitor.monitorID},~/.local/share/wallpapers/dante/wallpaper-05.jpg"
-
-      # Special workspaces
-      "$mainMod, Q, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk"
-      # "$mainMod, Q, exec, pgrep qalculate-gtk && hyprctl dispatch togglespecialworkspace calculator || qalculate-gtk"
 
       # Cycles
-      "$mainMod, Tab, exec, hyprctl dispatch focuscurrentorlast; hyprctl dispatch alterzorder top" # Prev - Current
-      # "$mainMod SHIFT, Tab, layoutmsg, cyclenext" # Master - Dwindle
+      "$mainMod ALT, H, exec, hyprlock"
 
       # Kills
-      "$mainMod, escape, exec, killall rofi" # Rofi
       "$mainMod, C, killactive" # Ask
       "$mainMod SHIFT, C, exec, hyprctl dispatch killactive" # Demand
       "$mainMod CTRL, C, exec, pkill -9 $(hyprctl activewindow -j | jq -r '.pid')" # Nuke
-
-      # Windows
-      # ----------------------------------------
-      # Swaps
-      # "$mainMod SHIFT, H, swapwindow, l" # Main key
-      # "$mainMod SHIFT, H, moveactive, -50 0" # Fallback for floating
-      # "$mainMod SHIFT, L, swapwindow, r"
-      # "$mainMod SHIFT, L, moveactive, 50 0"
-      # "$mainMod SHIFT, K, swapwindow, u"
-      # "$mainMod SHIFT, K, moveactive, 0 -50"
-      # "$mainMod SHIFT, J, swapwindow, d"
-      # "$mainMod SHIFT, J, moveactive, 0 50"
 
       # Floating
       "$mainMod, V, togglefloating"
@@ -128,10 +80,11 @@ in
     ];
 
     bindel = [
-      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ ${preferredBehaviour.knobIncrement}-"
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ ${preferredBehaviour.knobIncrement}+"
-      ", XF86MonBrightnessDown, exec, brightnessctl set ${preferredBehaviour.knobIncrement}-"
-      ", XF86MonBrightnessUp, exec, brightnessctl set +${preferredBehaviour.knobIncrement}"
+        # speaker and mic volume control
+        " , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%+"
+        " , XF86AudioLowerVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 10%-"
+        " , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        " , XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
 
     bindl = [
@@ -140,5 +93,29 @@ in
       ", XF86AudioNext, exec, playerctl next"
       ", XF86AudioPrev, exec, playerctl previous"
     ];
+
+    binde = [
+      # resize active
+      "SUPER_CTRL, left,  resizeactive, -20 0"
+      "SUPER_CTRL, right, resizeactive, 20 0"
+      "SUPER_CTRL, up,    resizeactive, 0 -20"
+      "SUPER_CTRL, down,  resizeactive, 0 20"
+
+      # move active (Floating Only)
+      "SUPER_ALT, left,  moveactive, -20 0"
+      "SUPER_ALT, right, moveactive, 20 0"
+      "SUPER_ALT, up,    moveactive, 0 -20"
+      "SUPER_ALT, down,  moveactive, 0 20"
+      "SUPER_ALT, equal, exec, hyprctl dispatch centerwindow;"
+
+      # display and keyboard brightness control
+      " , XF86MonBrightnessUp, exec, brightnessctl s +20%"
+      " , XF86MonBrightnessDown, exec, brightnessctl s 20%-"
+      " , XF86KbdBrightnessUp, exec, asusctl -n"
+      " , XF86KbdBrightnessDown, exec, asusctl -p"
+
+      # performance
+      " , XF86Launch4, exec, asusctl profile -n"
+      ];
   };
 }

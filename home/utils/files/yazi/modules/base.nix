@@ -405,35 +405,6 @@
         run = "ya pub extract --list \"$@\"";
       }
     ];
-
-    # --- PDF Viewers ---
-    okular = [
-      {
-        desc = "Okular (Full-featured)";
-        for = "unix";
-        orphan = true;
-        run = "okular \"$@\"";
-      }
-    ];
-
-    zathura = [
-      {
-        desc = "Zathura (Vim-like, fast)";
-        for = "unix";
-        orphan = true;
-        run = "zathura \"$@\"";
-      }
-    ];
-
-    # --- Drag and Drop ---
-    dragon = [
-      {
-        desc = "Drag files (dragon-drop)";
-        for = "unix";
-        orphan = true;
-        run = "dragon -x -i -T \"$@\"";
-      }
-    ];
   };
 
   # --- Open Rules ---
@@ -441,7 +412,7 @@
     rules = [
       # --- Directories ---
       {
-        url = "*/";
+        name = "*/";
         use = [
           "edit"
           "edit-helix"
@@ -455,7 +426,7 @@
 
       # --- Code Files (by extension) ---
       {
-        url = "*.{js,jsx,ts,tsx,py,rs,go,c,cpp,h,hpp,java,rb,php,lua,vim,sh,bash,zsh,fish,nu,Xresources,json,yaml,yml,toml,ini,conf,cfg}";
+        name = "*.{js,jsx,ts,tsx,py,rs,go,c,cpp,h,hpp,java,rb,php,lua,vim,sh,bash,zsh,fish,nu,Xresources,json,yaml,yml,toml,ini,conf,cfg}";
         use = [
           "edit"
           "edit-helix"
@@ -466,7 +437,7 @@
         ];
       }
       {
-        url = "*.{md,markdown,rst,tex}";
+        name = "*.{md,markdown,rst,tex}";
         use = [
           "edit"
           "edit-helix"
@@ -477,7 +448,7 @@
         ];
       }
       {
-        url = "*.{css,scss,sass,less}";
+        name = "*.{css,scss,sass,less}";
         use = [
           "edit"
           "edit-helix"
@@ -488,7 +459,7 @@
         ];
       }
       {
-        url = "*.{xml,sql,graphql,proto}";
+        name = "*.{xml,sql,graphql,proto}";
         use = [
           "edit"
           "edit-helix"
@@ -501,7 +472,7 @@
 
       # --- HTML Files (special case with browsers) ---
       {
-        url = "*.{html,htm,xhtml}";
+        name = "*.{html,htm,xhtml}";
         use = [
           "edit"
           "edit-helix"
@@ -517,7 +488,7 @@
 
       # --- SVG Files (special case - both image and code) ---
       {
-        url = "*.svg";
+        name = "*.svg";
         use = [
           "open"
           "imagemagick"
@@ -533,7 +504,7 @@
 
       # --- Images (no edit options) ---
       {
-        url = "*.{jpg,jpeg,png,gif,webp,bmp,ico,tiff,psd,avif,heic,heif}";
+        name = "*.{jpg,jpeg,png,gif,webp,bmp,ico,tiff,psd,avif,heic,heif}";
         use = [
           "open"
           "oculante"
@@ -622,19 +593,6 @@
       {
         mime = "application/pdf";
         use = [
-          "okular"
-          "zathura"
-          "libreoffice-draw"
-          "open"
-          "reveal"
-        ];
-      }
-      {
-        url = "*.pdf";
-        use = [
-          "okular"
-          "zathura"
-          "libreoffice-draw"
           "open"
           "reveal"
         ];
@@ -642,42 +600,21 @@
 
       # --- Tabular Data Files ---
       {
-        url = "*.{csv,tsv,tab,psv}";
+        name = "*.{csv,tsv,tab,psv}";
         use = [
+          "edit"
+          "edit-helix"
+          "edit-zed"
+          "edit-nano"
+          "edit-emacs"
           "libreoffice-calc"
-          "edit"
-          "edit-helix"
-          "edit-zed"
-          "edit-nano"
-          "edit-emacs"
-          "reveal"
-        ];
-      }
-      # Parquet files (data engineering)
-      {
-        url = "*.parquet";
-        use = [
-          "edit"
-          "reveal"
-        ];
-      }
-      # JSON/NDJSON files (structured data)
-      {
-        url = "*.{json,ndjson,jsonl}";
-        use = [
-          "edit"
-          "edit-helix"
-          "edit-zed"
-          "edit-nano"
-          "edit-emacs"
-          "browser-personal"
           "reveal"
         ];
       }
 
       # --- Text Files ---
       {
-        url = "*.{txt,text,log,md,markdown,rst,tex}";
+        name = "*.{txt,text,log,md,markdown,rst,tex}";
         use = [
           "edit"
           "edit-helix"
@@ -691,7 +628,7 @@
       # --- Office ---
       # Documents
       {
-        url = "*.{odt,doc,docx,rtf}";
+        name = "*.{odt,doc,docx,rtf}";
         use = [
           "libreoffice-writer"
           "onlyoffice"
@@ -725,7 +662,7 @@
 
       # Spreadsheets
       {
-        url = "*.{xls,xlsx,xlsm,xlsb,ods}";
+        name = "*.{xls,xlsx,xlsm,xlsb,ods}";
         use = [
           "libreoffice-calc"
           "onlyoffice"
@@ -759,7 +696,7 @@
 
       # Presentations
       {
-        url = "*.{odp,ppt,pptx}";
+        name = "*.{odp,ppt,pptx}";
         use = [
           "libreoffice-impress"
           "onlyoffice"
@@ -793,7 +730,7 @@
 
       # Drawings
       {
-        url = "*.{odg}";
+        name = "*.{odg}";
         use = [
           "libreoffice-draw"
           "gimp"
@@ -803,7 +740,7 @@
       }
       # Math Formulas
       {
-        url = "*.{odf}";
+        name = "*.{odf}";
         use = [
           "libreoffice-math"
           "reveal"
@@ -812,7 +749,7 @@
 
       # Libre Database Files
       {
-        url = "*.{odb}";
+        name = "*.{odb}";
         use = [
           "libreoffice-base"
           "reveal"
@@ -834,7 +771,7 @@
 
       # --- Catch-all Rule ---
       {
-        url = "*";
+        name = "*";
         use = [
           "edit"
           "edit-helix"
@@ -892,104 +829,63 @@
     prepend_fetchers = [
       {
         id = "git";
-        url = "*";
+        name = "*";
         run = "git";
       }
 
       {
         id = "git";
-        url = "*/";
+        name = "*/";
         run = "git";
       }
     ];
 
     # --- Previewers ---
     prepend_previewers = [
-      # --- Structured Data (duckdb) ---
-      {
-        url = "*.csv";
-        run = "duckdb";
-      }
-      {
-        url = "*.tsv";
-        run = "duckdb";
-      }
-      {
-        url = "*.parquet";
-        run = "duckdb";
-      }
-      {
-        url = "*.db";
-        run = "duckdb";
-      }
-      {
-        url = "*.duckdb";
-        run = "duckdb";
-      }
-
-      # --- Markdown (glow via piper with custom kanso style) ---
-      {
-        url = "*.md";
-        run = "piper -- CLICOLOR_FORCE=1 glow -w=$w -s=$HOME/.config/glow/kanso.json \"$1\"";
-      }
-      {
-        url = "*.markdown";
-        run = "piper -- CLICOLOR_FORCE=1 glow -w=$w -s=$HOME/.config/glow/kanso.json \"$1\"";
-      }
-
-      # --- Archives (ouch) ---
       {
         mime = "application/*zip";
         run = "ouch";
       }
+
       {
         mime = "application/x-tar";
         run = "ouch";
       }
+
       {
         mime = "application/x-bzip2";
         run = "ouch";
       }
+
       {
         mime = "application/x-7z-compressed";
         run = "ouch";
       }
+
       {
         mime = "application/x-rar";
         run = "ouch";
       }
+
       {
         mime = "application/x-xz";
         run = "ouch";
       }
+
       {
         mime = "application/xz";
         run = "ouch";
       }
-    ];
 
-    # --- Preloaders (for caching) ---
-    prepend_preloaders = [
       {
-        url = "*.csv";
-        run = "duckdb";
-        multi = false;
-      }
-      {
-        url = "*.tsv";
-        run = "duckdb";
-        multi = false;
-      }
-      {
-        url = "*.parquet";
-        run = "duckdb";
-        multi = false;
+        mime = "text/csv";
+        run = "miller";
       }
     ];
 
     previewers = [
       {
-        url = "*/";
+        name = "*/";
         run = "folder";
         sync = true;
       }
@@ -1050,7 +946,7 @@
       }
 
       {
-        url = "*";
+        name = "*";
         run = "file";
       }
     ];

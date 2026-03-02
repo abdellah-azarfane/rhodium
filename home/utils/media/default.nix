@@ -1,12 +1,11 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    chafa # Terminal image viewer (ANSI/text art)
-    timg # Terminal image viewer with sixel support
-    exiftool # Read and write metadata from and to images
-    ffmpegthumbnailer # For video previews
+    # Image manipulation and viewing
     imagemagick # Image manipulation toolkit
-    libwebp # Tools for WebP images
+    chafa # Terminal image viewer
+    ffmpegthumbnailer # For video previews
+    exiftool # Read and write metadata from and to images
     ueberzugpp # Write images on terminal on wayland (kitty, etc)
   ];
 }

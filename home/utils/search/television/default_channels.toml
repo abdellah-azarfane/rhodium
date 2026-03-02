@@ -73,16 +73,16 @@ name = "nix"
 source_command = '''
 {
   # Get system packages
-  nix-store --query --requisites /run/current-system 2>/dev/null | 
-    sed -E 's|/nix/store/[^-]+-||' | 
-    grep -vE '\.(patch|tar\.|zip|gz|bz2|xz)$|source$|\.drv$' | 
+  nix-store --query --requisites /run/current-system 2>/dev/null |
+    sed -E 's|/nix/store/[^-]+-||' |
+    grep -vE '\.(patch|tar\.|zip|gz|bz2|xz)$|source$|\.drv$' |
     sort | uniq
-  
+
   # Get home-manager packages if profile exists
   if [[ -L "$HOME/.nix-profile" ]]; then
-    nix-store --query --requisites "$HOME/.nix-profile" 2>/dev/null | 
-      sed -E 's|/nix/store/[^-]+-||' | 
-      grep -vE '\.(patch|tar\.|zip|gz|bz2|xz)$|source$|\.drv$' | 
+    nix-store --query --requisites "$HOME/.nix-profile" 2>/dev/null |
+      sed -E 's|/nix/store/[^-]+-||' |
+      grep -vE '\.(patch|tar\.|zip|gz|bz2|xz)$|source$|\.drv$' |
       sort | uniq
   fi
 } | sort | uniq | grep -v '^$'
@@ -141,8 +141,8 @@ fd -t f --changed-within 7d --exclude .git --color=never . | \
 preview_command = "bat -n --color=always --style=full {}"
 
 [[cable_channel]]
-name = "rhodium"
-source_command = "fd -t f . $RHODIUM"
+name = "irix"
+source_command = "fd -t f . $IRIX"
 preview_command = "bat -n --color=always --style=numbers {}"
 
 [[cable_channel]]

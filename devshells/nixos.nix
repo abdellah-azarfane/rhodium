@@ -1,6 +1,9 @@
-{ pkgs-shell, ... }:
-pkgs-shell.mkShell {
-  buildInputs = with pkgs-shell; [
+{ pkgs, nvim ? null, ... }:
+let
+  extraInputs = pkgs.lib.optionals (nvim != null) [ nvim ];
+in
+pkgs.mkShell {
+  buildInputs = (with pkgs; [
     # --- General Requirements ---
     nixpkgs-fmt
     nixd
@@ -17,10 +20,5 @@ pkgs-shell.mkShell {
     # --- Requirements For Cache Building ---
     python3
     python3Packages.wcwidth
-
-    # --- Utils ---
-    claude-code
-    codex
-    gemini-cli
-  ];
+  ]) ++ extraInputs;
 }

@@ -5,15 +5,12 @@
   untargz = "tar -xzvf";
   untarxz = "tar -xJvf";
 
-  # --- Niri ---
-  nms = "niri msg --json event-stream | jq '.'"; # Niri msg stream in json
-
   # --- Clipboard ---
   y = "wl-copy"; # Yank
 
   # --- Disk Usage ---
   du = "dust"; # Better disk usage analyzer
-  df = "duf"; # Better df alternative
+  df = "_df"; # Better df alternative
 
   # --- Docker ---
   d = "docker";
@@ -25,11 +22,17 @@
   vi = "nvim";
   v = "nvim";
 
+  # --- Launch Apps With Nvidia
+  blendernv = "LD_LIBRARY_PATH=/run/opengl-driver/lib blender";
+  obsnv= "LD_LIBRARY_PATH=/run/opengl-driver/lib obs";
+  kdenlivenv = " LD_LIBRARY_PATH=/run/opengl-driver/lib kdenlive";
+  darktablenv = "LD_LIBRARY_PATH=/run/opengl-driver/lib darktable";
+
   # --- File Operations ---
   cp = "cp -iv"; # Interactive & verbose copy
   mv = "mv -iv"; # Interactive & verbose move
   rm = "trash-put"; # Move to trash instead of delete
-  mkdir = "mkdir -pv"; # Create parent dirs & verbose
+  mkdir = "mkdir -p"; # Create parent dirs & verbose
 
   # --- General ---
   cl = "clear"; # Clear previous commands
@@ -72,7 +75,7 @@
   gh = "z $HOME"; # Go home
   gi = "zi"; # Go interactive
   gp = "z $HOME_PROJECTS"; # Go projects
-  gr = "z $RHODIUM"; # Go Rhodium
+  gr = "z $IRIX"; # Go Irix
   gS = "z $HOME_SOLENOIDLABS"; # Go SolenoidLabs
   gv = "z $HOME_VAULTS"; # Go Obsidian Vaults
   gw = "z $HOME_PROFESSIONAL"; # Go Professional
@@ -89,7 +92,7 @@
   gel = "z $XDG_CACHE_HOME; yy";
   ghl = "z $HOME; yy";
   gpl = "z $HOME_PROJECTS; yy";
-  grl = "z $RHODIUM; yy";
+  grl = "z $IRIX; yy";
   gsl = "z $HOME_SOLENOIDLABS; yy";
   gvl = "z $HOME_VAULTS; yy";
   gwl = "z $HOME_PROFESSIONAL; yy";
@@ -116,19 +119,13 @@
   llty = "eza -T | wl-copy";
   laty = "eza -Ta | wl-copy";
 
-  # --- Launch Apps With Nvidia ---
-  blendernv = "LD_LIBRARY_PATH=/run/opengl-driver/lib blender";
-  obsnv = "LD_LIBRARY_PATH=/run/opengl-driver/lib obs";
-  kdenlivenv = " LD_LIBRARY_PATH=/run/opengl-driver/lib kdenlive";
-  darktablenv = "LD_LIBRARY_PATH=/run/opengl-driver/lib darktable";
-
   # --- Navigation ---
   # Change dir ->
   cd = "z";
-  ".." = "z ..";
-  "..." = "z ../..";
-  "...." = "z ../../..";
-  "....." = "z ../../../..";
+  ".." = "cd ..";
+  "..." = "cd ../..";
+  "...." = "cd ../../..";
+  "....." = "cd ../../../..";
 
   # --- Network ---
   ping = "gping"; # Graph ping with TUI
@@ -161,7 +158,6 @@
 
   # --- System Info ---
   free = "free -h"; # Human readable memory
-
   # --- Time Savers ---
   now = "date +'%Y-%m-%d %H:%M:%S'";
   week = "date +%V";
@@ -169,8 +165,7 @@
   # --- View ---
   cat = "bat";
   cata = "cat * | y"; # cat all and yank
-  # catr = "find . -type f | xargs -I {} sh -c 'echo \"{}\"; cat \"{}\"; echo \"-----\"' | wl-copy"; # cat all recursive and yank
-  # catr = "catr";
+  catr = "find . -type f | xargs -I {} sh -c 'echo \"{}\"; cat \"{}\"; echo \"-----\"' | wl-copy"; # cat all recursive and yank
   headr = "find . -type f | xargs -I {} sh -c 'echo \"{}\"; head \"{}\"; echo \"-----\"' | wl-copy"; # head all recursive and yank
   lf = "yy";
 }

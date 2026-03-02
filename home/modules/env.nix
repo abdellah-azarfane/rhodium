@@ -12,6 +12,7 @@ let
     downloads = "${homeDir}/downloads";
     pendings = "${homeDir}/pendings";
     professional = "${homeDir}/professional";
+    solenoidLabs = "${homeDir}/solenoid-labs";
     vaults = "${homeDir}/vaults";
   };
 
@@ -24,7 +25,8 @@ let
 
   derivedDirs = {
     # Dev
-    devRhodium = "${dirs.dev}/rhodium";
+    devPhantom = "${dirs.dev}/phantom";
+    devIrix = "${dirs.dev}/irix";
     devAlloys = "${dirs.dev}/alloys.rhf";
     devChiaroscuro = "${dirs.dev}/chiaroscuro.rht";
     devUtils = "${dirs.dev}/utils";
@@ -62,12 +64,14 @@ in
     # Main dirs
     HOME_ACADEMIC = dirs.academic;
     HOME_DOWNLOADS = dirs.downloads;
+    HOME_SOLENOIDLABS = dirs.solenoidLabs;
     HOME_PROFESSIONAL = dirs.professional;
     HOME_VAULTS = dirs.vaults;
 
     # Dev
+    DEV_PHANTOM = derivedDirs.devPhantom;
     DEV_UTILS = derivedDirs.devUtils;
-    RHODIUM = derivedDirs.devRhodium;
+    IRIX = derivedDirs.devIrix;
     DEV_ALLOYS = derivedDirs.devAlloys;
     DEV_CHIAROSCURO = derivedDirs.devChiaroscuro;
 

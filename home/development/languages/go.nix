@@ -9,6 +9,6 @@
     gomodifytags
     gotests
     gore
-    prettier-plugin-go-template
+ #   prettier-plugin-go-template
   ];
 }

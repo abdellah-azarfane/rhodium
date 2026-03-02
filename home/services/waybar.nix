@@ -6,15 +6,15 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-waybar;
+  cfg = config.userExtraServices.waybar;
 in
 {
-  options.userExtraServices.rh-waybar = {
+  options.userExtraServices.waybar = {
     enable = mkEnableOption "Highly customizable Wayland bar";
   };
 
   config = mkIf cfg.enable {
-    systemd.user.services.rh-waybar = {
+    systemd.user.services.waybar = {
       Unit = {
         Description = "Highly customizable Wayland bar";
         PartOf = [ "graphical-session.target" ];

@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
-    # ./ags.nix
+    ./ags.nix
+    ./eww.nix
   ];
 }

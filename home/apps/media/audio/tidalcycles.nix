@@ -6,19 +6,19 @@
 }:
 
 let
-  cfg = config.rh.apps.media.audio.tidalcycles;
+  cfg = config.ix.apps.media.audio.tidalcycles;
 in
 {
   imports = [
     ../../../development
   ];
 
-  options.rh.apps.media.audio.tidalcycles = {
+  options.ix.apps.media.audio.tidalcycles = {
     enable = lib.mkEnableOption "Enable TidalCycles";
   };
 
   config = lib.mkIf cfg.enable {
-    rh.development.languages.haskell = {
+    ix.development.languages.haskell = {
       enable = true;
     };
     home.packages = with pkgs; [

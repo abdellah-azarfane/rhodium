@@ -1,7 +1,7 @@
 { ... }:
 {
   programs.neovide = {
-    enable = false;
+    enable = true;
     settings = {
       # --- Window Behavior ---
       fork = false;
@@ -23,7 +23,7 @@
       # --- Font Configuration ---
       font = {
         normal = [ "JetBrainsMono Nerd Font" ];
-        size = 12.0;
+        size = 12;
         hinting = "full";
         edging = "antialias";
 

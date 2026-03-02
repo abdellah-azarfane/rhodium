@@ -6,16 +6,16 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-swaybg;
+  cfg = config.userExtraServices.swaybg;
   targetDir = "/var/tmp/current-wallpaper";
 in
 {
-  options.userExtraServices.rh-swaybg = {
+  options.userExtraServices.swaybg = {
     enable = mkEnableOption "Wallpaper tool for Wayland compositors";
   };
 
   config = mkIf cfg.enable {
-    systemd.user.services.rh-swaybg = {
+    systemd.user.services.swaybg = {
       Unit = {
         Description = "Wallpaper daemon for Wayland";
         PartOf = [ "graphical-session.target" ];

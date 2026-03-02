@@ -37,10 +37,6 @@ let
 in
 {
   programs.starship.settings = {
-    # Global Settings
-    scan_timeout = 100; # Increase from default 30ms to avoid timeout warnings in large directories
-    command_timeout = 1000; # Increase from default 500ms for slow commands
-
     # Custom Modules
     custom.times = {
       description = "Display Execution Times (Start and End Time)";
@@ -338,18 +334,6 @@ in
       format = "[${i.icon01}](${viaColor}) [$symbol($version )]($style)";
       style = "#8992a7";
       disabled = true;
-    };
-    julia = {
-      format = "[${i.icon01}](${viaColor}) [$symbol($version )]($style)";
-      symbol = " ";
-      style = "#C2736D";
-      disabled = false;
-      detect_extensions = [ "jl" ];
-      detect_files = [
-        "Project.toml"
-        "Manifest.toml"
-      ];
-      detect_folders = [ ];
     };
     kotlin = {
       symbol = " ";

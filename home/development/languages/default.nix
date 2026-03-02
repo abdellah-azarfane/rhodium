@@ -28,9 +28,7 @@
     ./haskell.nix
     ./java.nix
     ./javascript.nix
-    ./jinja.nix
     ./just.nix
-    ./julia.nix
     ./kdl.nix
     ./kotlin.nix
     ./latex.nix
@@ -48,7 +46,7 @@
     ./scala.nix
     ./sql.nix
     ./svelte.nix
-    # ./swift.nix # DISABLED: Swift 5.10.1 build broken in nixpkgs 25.11 (GCC 14 incompatibility)
+  # ./swift.nix
     ./tailwind.nix
     ./terraform.nix
     ./toml.nix

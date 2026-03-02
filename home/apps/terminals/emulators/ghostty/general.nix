@@ -8,7 +8,7 @@
       scrollback-limit = 10000;
 
       # Theme
-      theme = "kanso";
+     # theme = "catppuccin-mocha";
 
       # Typography
       font-family = "BerkeleyMonoRh Nerd Font";
@@ -29,8 +29,8 @@
       window-padding-x = 20;
       window-padding-y = 10;
       window-padding-balance = true;
-      background-opacity = 1.0; # This is controlled by the compositor instead
-      background-blur = 0;
+      background-opacity = 0.70; # This is controlled by the compositor instead
+      background-blur = 5;
       mouse-hide-while-typing = true;
 
       # Performance

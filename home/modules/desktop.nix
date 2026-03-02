@@ -2,23 +2,10 @@
   lib,
   config,
   pkgs,
-  userPreferences,
-  userExtras,
-  rhodiumLib,
-  ...
+   ...
 }:
 let
-  theme = config.theme;
-  generatedEntries =
-    rhodiumLib.generators.desktopGenerators.generateAllEntries userPreferences userExtras
-      theme;
-
-  # Create YAML configuration
-  yamlFormat = pkgs.formats.yaml { };
-  raffiConfig = yamlFormat.generate "raffi.yaml" generatedEntries;
-  escapeDesktopArg =
-    arg:
-    let
+t
       escapedPercent = lib.replaceStrings [ "%" ] [ "%%" ] arg;
       needsQuotes = lib.any (char: lib.hasInfix char arg) [
         "?"

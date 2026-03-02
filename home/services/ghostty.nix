@@ -6,14 +6,14 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-ghostty-daemon;
+  cfg = config.userExtraServices.ghostty-daemon;
 in
 {
-  options.userExtraServices.rh-ghostty-daemon = {
+  options.userExtraServices.ghostty-daemon = {
     enable = mkEnableOption "Ghostty terminal emulator daemon for instant startup";
   };
   config = mkIf cfg.enable {
-    systemd.user.services.rh-ghostty-daemon = {
+    systemd.user.services.ghostty-daemon = {
       Unit = {
         Description = "Ghostty terminal daemon";
         PartOf = [ "graphical-session.target" ];

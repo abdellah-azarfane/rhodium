@@ -1,6 +1,6 @@
 { ... }:
 {
   imports = [
-    ./mime.nix
+   # ./mime.nix
   ];
 }

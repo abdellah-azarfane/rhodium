@@ -1,29 +1,27 @@
 {
-  user,
   pkgs,
   ...
 }:
 let
-  userfullName = user.fullName;
-  userEmailMain = user.emailMain;
+  userfullName = "Abdellah Azarfane";
+  userEmail = "abdellahazarfane@proton.me";
 in
 {
-  home.packages = with pkgs; [
+   home.packages = with pkgs; [
     commitizen # Commit rules for projects
     serie # Rich TUI commit graph
-    tig # Text-mode interface for git
   ];
 
   programs.git = {
     enable = true;
-    settings = {
+  settings = {
       user = {
-        name = userfullName;
-        email = userEmailMain;
+        name  = userfullName;
+        email = userEmail;
       };
-      extraConfig = {
-        init.defaultBranch = "main";
-      };
+    extraConfig = {
+      init.defaultBranch = "main";
+     };
     };
     ignores = [
       # Editor files
@@ -54,13 +52,13 @@ in
   };
 
   programs.riff = {
-    enable = false; # View file diffs. Either this or delta.
-  };
+      enable = false; # View file diffs. Either this or delta.
+    };
 
   programs.delta = {
-    enable = true; # View file diffs
-    enableGitIntegration = true;
-  };
+      enable = true; # View file diffs
+      enableGitIntegration = true;
+    };
 
   programs.gh = {
     enable = true; # GitHub CLI Tool

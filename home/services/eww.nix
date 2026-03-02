@@ -5,15 +5,15 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-eww;
+  cfg = config.userExtraServices.eww;
 in
 {
-  options.userExtraServices.rh-eww = {
+  options.userExtraServices.eww = {
     enable = mkEnableOption "Highly customizable widgets";
   };
 
   config = mkIf cfg.enable {
-    systemd.user.services.rh-eww = {
+    systemd.user.services.eww = {
       Unit = {
         Description = "ElKowar's Wacky Widgets";
         PartOf = [ "graphical-session.target" ];

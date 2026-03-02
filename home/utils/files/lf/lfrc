@@ -135,22 +135,22 @@ map ra push :renamea<space>
 map g
 
 # Go to .config
-map gc cd /home/abosafiya/.config
+map gc cd /home/zayron/.config
 
 # Go to Documents
-map gx cd /home/abosafiya/Documents
+map gx cd /home/zayron/documents
 
 # Go to Pictures
-map gp cd /home/abosafiya/Pictures
+map gp cd /home/zayron/pictures
 
 # Go to Downloads
-map gd cd /home/abosafiya/Downloads
+map gd cd /home/zayron/downloads
 
 # Go to script files dir
-map gb cd /home/abosafiya/bin
+map gb cd /home/zayron/bin
 
 # Go to 60GB
-# map g6 cd /run/media/abosafiya/60GB
+# map g6 cd /run/media/zayron/60GB
 
 # Go to home
 map gh cd ~

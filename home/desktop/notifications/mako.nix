@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 let
   c = {
     # Normal
@@ -56,7 +56,7 @@ in
 {
   services.mako = {
     enable = true;
-    settings = {
+    settings = lib.mkForce {
       # --- Global Config ---
       max-history = 20;
       sort = "-time";
@@ -64,7 +64,7 @@ in
       # --- Style ---
       border-radius = 0;
       border-size = 1;
-      font = "BerkeleyMonoRh Nerd Font 10";
+      font = lib.mkForce "BerkeleyMonoRh Nerd Font 10";
       height = 120;
       margin = 10;
       outer-margin = 20;
@@ -581,7 +581,7 @@ in
         default-timeout = notifTime.lg;
       };
 
-      # --- Rhodium Builds ---
+      # --- Builds ---
       "app-name=rh-build" = {
         background-color = "${c.color21}";
         text-color = "${c.color18}";

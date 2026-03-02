@@ -1,16 +1,16 @@
-{
-  config,
-  lib,
-  pkgs,
-  inputs,
-  ...
+{ config
+, lib
+, pkgs
+, inputs
+, ...
 }:
 let
-  cfg = config.userExtraServices.rh-astal;
-  astalPkg = inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.astal-widgets;
+  cfg = config.userExtraServices.astal;
+  system = pkgs.stdenv.hostPlatform.system;
+  astalPkg = inputs.self.packages.${system}.astal-widgets;
 in
 {
-  options.userExtraServices.rh-astal = {
+  options.userExtraServices.astal = {
     enable = lib.mkEnableOption "Enable Astal widgets";
   };
 

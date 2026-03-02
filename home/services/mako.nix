@@ -6,15 +6,15 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-mako;
+  cfg = config.userExtraServices.mako;
 in
 {
-  options.userExtraServices.rh-mako = {
+  options.userExtraServices.mako = {
     enable = mkEnableOption "A lightweight Wayland notification daemon";
   };
 
   config = mkIf cfg.enable {
-    systemd.user.services.rh-mako = {
+    systemd.user.services.mako = {
       Unit = {
         Description = "Mako notification daemon";
         PartOf = [ "graphical-session.target" ];

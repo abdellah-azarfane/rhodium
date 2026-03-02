@@ -5,8 +5,7 @@
   ];
 
   home.packages = with pkgs; [
-    # virtualbox
-    # wine
-    # darling
+     virtualbox
   ];
+
 }

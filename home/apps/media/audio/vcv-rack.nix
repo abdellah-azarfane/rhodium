@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.apps.media.audio.vcv-rack;
+  cfg = config.ix.apps.media.audio.vcv-rack;
 in
 {
-  options.apps.media.audio.vcv-rack = {
+  options.ix.apps.media.audio.vcv-rack = {
     enable = lib.mkEnableOption "Enable VCV Rack modular synth";
   };
 

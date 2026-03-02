@@ -5,7 +5,7 @@
 INTERFACE=$(ip route | grep default | awk '{print $5}' | head -1)
 
 if [ -z "$INTERFACE" ]; then
-    echo '{"icon":"≏ ⌽","download_speed":"0B","upload_speed":"0B","status":"disconnected"}'
+    echo '{"icon":"≏ ∅","download_speed":"0B","upload_speed":"0B","status":"disconnected"}'
     exit
 fi
 

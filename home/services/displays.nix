@@ -7,13 +7,13 @@
 
 with lib;
 let
-  cfg = config.userExtraServices.rh-hdmiAutoSwitch;
+  cfg = config.userExtraServices.hdmiAutoSwitch;
 in
 {
-  options.userExtraServices.rh-hdmiAutoSwitch.enable = mkEnableOption "HDMI auto-switch user service";
+  options.userExtraServices.hdmiAutoSwitch.enable = mkEnableOption "HDMI auto-switch user service";
 
   config = mkIf cfg.enable {
-    systemd.user.services.rh-hdmi-hotplug = {
+    systemd.user.services.hdmi-hotplug = {
       Unit.Description = "HDMI/eDP auto‑switch";
 
       Service = {

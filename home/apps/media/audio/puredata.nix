@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.apps.media.audio.puredata;
+  cfg = config.ix.apps.media.audio.puredata;
 in
 {
-  options.apps.media.audio.puredata = {
+  options.ix.apps.media.audio.puredata = {
     enable = lib.mkEnableOption "Enable PureData";
   };
 

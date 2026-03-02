@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.apps.media.audio.supercollider;
+  cfg = config.ix.apps.media.audio.supercollider;
 in
 {
-  options.apps.media.audio.supercollider = {
+  options.ix.apps.media.audio.supercollider = {
     enable = lib.mkEnableOption "Enable SuperCollider";
   };
 

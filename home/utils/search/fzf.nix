@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.fzf = {
     enable = true;
@@ -18,7 +18,7 @@
     ];
 
     # Custom color scheme
-    colors = {
+    colors = lib.mkForce {
       "bg+" = "-1";
       "bg" = "-1";
       "border" = "240";

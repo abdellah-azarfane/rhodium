@@ -3,7 +3,7 @@
   imports = [
     ./core.nix
     # ./custom-langs.nix
-    ./custom-rhodium.nix
+    ./custom-irix.nix
     ./format.nix
   ];
 }

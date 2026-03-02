@@ -1,8 +1,7 @@
-{
-  pkgs,
-  lib,
-  config,
-  ...
+{ pkgs
+, lib
+, config
+, ...
 }:
 
 with lib;
@@ -13,7 +12,7 @@ with lib;
     services.udev.extraRules = ''
       ACTION=="change", SUBSYSTEM=="drm", ENV{HOTPLUG}=="1", \
         DEVPATH=="*/drm/card1", \
-        RUN+="${pkgs.util-linux}/bin/runuser -u abosafiya -- ${pkgs.systemd}/bin/systemctl --user start --no-block rh-hdmi-hotplug.service"
+        RUN+="${pkgs.util-linux}/bin/runuser -u zayron -- ${pkgs.systemd}/bin/systemctl --user start --no-block hdmi-hotplug.service"
     '';
   };
 }

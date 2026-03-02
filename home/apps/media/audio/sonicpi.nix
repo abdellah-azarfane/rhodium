@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.apps.media.audio.sonicpi;
+  cfg = config.ix.apps.media.audio.sonicpi;
 in
 {
-  options.apps.media.audio.sonicpi = {
+  options.ix.apps.media.audio.sonicpi = {
     enable = lib.mkEnableOption "Enable Sonic Pi";
   };
 

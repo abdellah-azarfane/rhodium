@@ -1,12 +1,4 @@
-{
-  pkgs,
-  userPreferences,
-  ...
-}:
-let
-  keyboardRepeat = userPreferences.behaviour.keyboardRepeat;
-  keyboardDelay = userPreferences.behaviour.keyboardDelay;
-in
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     hyprpolkitagent
@@ -16,6 +8,7 @@ in
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
+
     systemd = {
       enable = true;
       enableXdgAutostart = true;
@@ -27,12 +20,8 @@ in
     };
 
     settings = {
-      exec-once = [
-        "bash ~/.local/bin/desktop-autostart.sh"
-      ];
-
       xwayland = {
-        force_zero_scaling = true; # Force GUI apps to behave
+        force_zero_scaling = true;
       };
 
       input = {
@@ -41,19 +30,13 @@ in
         kb_model = "";
         kb_options = "grp:win_space_toggle";
         kb_rules = "";
-        repeat_delay = keyboardDelay;
-        repeat_rate = keyboardRepeat;
+        repeat_delay = 250;
+        repeat_rate = 35;
         follow_mouse = 1;
         sensitivity = -0.3;
         touchpad = {
           natural_scroll = true;
         };
-      };
-
-      gestures = {
-        workspace_swipe = true;
-        workspace_swipe_touch = true;
-        workspace_swipe_use_r = true;
       };
 
       general = {
@@ -62,16 +45,14 @@ in
         gaps_in = 10;
         gaps_out = 15;
         border_size = 0;
-        "col.active_border" = "rgba(00000000)";
-        "col.inactive_border" = "rgba(00000000)";
         resize_on_border = false;
         allow_tearing = false;
       };
 
       misc = {
-        force_default_wallpaper = -1; # Remove default wallpaper
+        force_default_wallpaper = -1;
         disable_hyprland_logo = true;
-        enable_anr_dialog = false; # Disable non-responsive app dialogues
+        enable_anr_dialog = false;
       };
 
       dwindle = {

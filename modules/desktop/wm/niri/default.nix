@@ -1,15 +1,21 @@
 {
+  config,
+  lib,
   pkgs,
-  pkgs-unstable,
   ...
 }:
+with lib;
+let
+  cfg = config.desktop.wm.niri;
+in
 {
+  config = mkIf cfg.enable {
   environment.systemPackages = with pkgs; [
     wl-clipboard # Clipboard support
     wayland-utils # Wayland debugging tools
     wev # Key event viewer (useful for finding key names)
     wlr-randr # Output management
-    pkgs-unstable.xwayland-satellite # X11 app support (non-native on niri)
+    pkgs.xwayland-satellite # X11 app support (non-native on niri)
     dragon-drop # Drag and drop for wayland
   ];
 
@@ -30,10 +36,6 @@
 
   programs.niri = {
     enable = true;
-    # NOTE: Using nixpkgs niri instead of niri-flake package due to upstream
-    # build failures (issues #1501, #1515). The niri-flake's cargoInstallHook
-    # fails silently during install phase.
-    package = pkgs.niri;
   };
 
   services.dbus = {
@@ -41,17 +43,22 @@
   };
 
   # Desktop portals
-  # NOTE: Niri requires xdg-desktop-portal-gnome for screencasting (not wlr).
-  # The programs.niri module already adds xdg-desktop-portal-gnome and niri-portals.conf.
   xdg.portal = {
     enable = true;
-    # wlr.enable = true; # DISABLED: wlr portal doesn't work with Niri
+    wlr.enable = true;
     extraPortals = with pkgs; [
       xdg-desktop-portal-gtk
+      xdg-desktop-portal
+      xdg-desktop-portal-wlr
       xdg-desktop-portal-termfilechooser # Portal for using TUIs as file pickers
     ];
+    config = {
+      common = {
+        default = "gtk";
+        "org.freedesktop.impl.portal.ScreenCast" = "wlr"; # NOTE: This is required for screensharing to work properly
+        "org.freedesktop.impl.portal.Screenshot" = "wlr";
+      };
+    };
   };
-
-  # Required by xdg-desktop-portal-gnome for file chooser dialogs
-  services.dbus.packages = [ pkgs.nautilus ];
+  };
 }

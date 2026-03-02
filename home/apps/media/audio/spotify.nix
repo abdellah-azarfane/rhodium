@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.rh.apps.media.audio.spotify;
+  cfg = config.ix.apps.media.audio.spotify;
 in
 {
-  options.rh.apps.media.audio.spotify = {
+  options.ix.apps.media.audio.spotify = {
     enable = lib.mkEnableOption "Enable Spotify client";
 
     withExtras = lib.mkOption {

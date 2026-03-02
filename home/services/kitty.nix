@@ -6,14 +6,14 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-kitty-daemon;
+  cfg = config.userExtraServices.kitty-daemon;
 in
 {
-  options.userExtraServices.rh-kitty-daemon = {
+  options.userExtraServices.kitty-daemon = {
     enable = mkEnableOption "Kitty terminal daemon for instant startup";
   };
   config = mkIf cfg.enable {
-    systemd.user.services.rh-kitty-daemon = {
+    systemd.user.services.kitty-daemon = {
       Unit = {
         Description = "Kitty terminal daemon";
         PartOf = [ "graphical-session.target" ];

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./audacity.nix
+     ./audacity.nix
     ./csound.nix
     ./ncmpc.nix
     ./ncspot.nix
@@ -16,14 +16,11 @@
   ];
 
   home.packages = with pkgs; [
-    clementine
+    # audacious
+    # audacity
     easyeffects # Equalizer for PipeWire
     helvum # GTK patchbay for PipeWire
     playerctl # CLI util & lib for controlling audio
     cavalier # Terminal audio visualizer
-
-    # --- TUI Music Players ---
-    termusic # Feature-rich music player in Rust
-    cmus # Small, fast console music player
   ];
 }

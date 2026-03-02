@@ -13,7 +13,7 @@
 (defwidget battery-widget []
   (eventbox :class "battery ${(battery?.status ?: '')} ${(battery?.percentage ?: 0) < 15 ? 'critical' : (battery?.percentage ?: 0) < 30 ? 'warning' : ''}"
     (box :orientation "h" :space-evenly false
-      (label :text "Ω ${(battery?.percentage ?: 0)}%${(battery?.charging ?: false) ? ' 𝥽' : ''}"))))
+      (label :text "${battery?.icon ?: '◉'} ${(battery?.percentage ?: 0)}%"))))
 
 (defwidget metric [label value class ?suffix]
   (eventbox :class "metric ${class}"
@@ -35,8 +35,8 @@
             :onhoverlost  "${EWW_CMD} update reveal_system=false"
     (box :class "system-stats" :orientation "h" :space-evenly false :spacing 15
       (battery-widget)
-      (metric :label "⚙"  :value cpu_usage :class "cpu")
+      (metric :label "○"  :value cpu_usage :class "cpu")
       (metric :label "𝍖"  :value memory    :class "memory")
-      (metric :label "⬢"  :value disk      :class "disk")
+      (metric :label "⟐"  :value disk      :class "disk")
       (temperature-widget))))
 

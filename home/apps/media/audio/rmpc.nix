@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.apps.media.audio.rmpc;
+  cfg = config.ix.apps.media.audio.rmpc;
 in
 {
-  options.apps.media.audio.rmpc = {
+  options.ix.apps.media.audio.rmpc = {
     enable = lib.mkEnableOption "Enable rmpc terminal MPD client";
   };
 

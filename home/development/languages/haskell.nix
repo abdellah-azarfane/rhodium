@@ -6,10 +6,10 @@
 }:
 
 let
-  cfg = config.rh.development.languages.haskell;
+  cfg = config.ix.development.languages.haskell;
 in
 {
-  options.rh.development.languages.haskell = {
+  options.ix.development.languages.haskell = {
     enable = lib.mkEnableOption "Enable Haskell Language";
   };
 

@@ -1,7 +1,7 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.zed-editor = {
-    userSettings = {
+    userSettings = lib.mkForce {
       # --- Appearance ---
       buffer_font_family = "BerkeleyMonoRh Nerd Font";
       # buffer_font_family = "JetBrainsMono Nerd Font";

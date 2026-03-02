@@ -1,10 +1,10 @@
 { config, lib, ... }:
 
 let
-  cfg = config.apps.media.audio.ncspot;
+  cfg = config.ix.apps.media.audio.ncspot;
 in
 {
-  options.apps.media.audio.ncspot = {
+  options.ix.apps.media.audio.ncspot = {
     enable = lib.mkEnableOption "Enable ncspot TUI Spotify client";
   };
 

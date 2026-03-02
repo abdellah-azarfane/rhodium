@@ -81,9 +81,9 @@
     # alias laty = eza -Ta | wl-copy
 
     # Core directory jumpers
-    alias gd = z $"($env.HOME)/Downloads"
+    alias gd = z $"($env.HOME)/downloads"
     alias gc = z $env.XDG_CONFIG_HOME
-    alias gr = z $env.RHODIUM
+    alias gr = z $env.IRIX
     alias gp = z $env.HOME_PROJECTS
     alias ga = z $env.HOME_ACADEMIC
     alias gs = z $env.HOME_SOLENOIDLABS

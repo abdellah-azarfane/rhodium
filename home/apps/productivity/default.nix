@@ -10,12 +10,9 @@
     # kdePackages.korganizer
     # evolution
     # calcurse # CLI calendar
-    calcure # Modern calcurse alternative
+    # calcure # Modern calcurse alternative
+    # NOTE: commented because it pulls python `taskw` -> `taskwarrior` which currently fails to build (missing <cstdint> / uint64_t).
     # ulauncher # GUI-based launcher
-
-    # --- Task Management ---
-    taskwarrior3 # Comprehensive task management CLI
-    taskwarrior-tui # TUI for taskwarrior
 
     # --- Timers ---
     uair

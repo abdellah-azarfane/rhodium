@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-kmonad;
+  cfg = config.userExtraServices.kmonad;
 in
 {
-  options.userExtraServices.rh-kmonad = {
+  options.userExtraServices.kmonad = {
     enable = mkEnableOption "KMonad user services";
     configFile = mkOption {
       type = types.path;
@@ -23,17 +23,13 @@ in
       type = types.path;
       default = config.home.homeDirectory + "/.config/kmonad/alexandria.kbd";
     };
-    keychronQ3ConfigFile = mkOption {
-      type = types.path;
-      default = config.home.homeDirectory + "/.config/kmonad/keychron-q3.kbd";
-    };
     extraArgs = mkOption {
       type = types.listOf types.str;
       default = [ ];
     };
   };
   config = mkIf cfg.enable {
-    systemd.user.services.rh-kmonad-alexandria = {
+    systemd.user.services.kmonad-alexandria = {
       Unit.PartOf = [ "graphical-session.target" ];
       Unit.Wants = [ "dbus-org.freedesktop.Notifications.service" ];
       Unit.After = [
@@ -50,7 +46,7 @@ in
       Install.WantedBy = [ "graphical-session.target" ];
     };
 
-    systemd.user.services.rh-kmonad-justine = {
+    systemd.user.services.kmonad-justine = {
       Unit = {
         PartOf = [ "graphical-session.target" ];
         Wants = [ "dbus-org.freedesktop.Notifications.service" ];
@@ -74,30 +70,16 @@ in
       };
     };
 
-    systemd.user.services.rh-kmonad-keychron = {
+    systemd.user.services.kmonad-keychron = {
       Unit = {
         Description = "KMonad – Keychron V1";
-        # Make sure it isn't started unless the device is really there
+        # Make sure it isn’t started unless the device is really there
         ConditionPathExists = "/dev/input/by-id/usb-Keychron_Keychron_V1-event-kbd";
       };
 
       Service = {
         Type = "simple";
         ExecStart = "${pkgs.kmonad}/bin/kmonad ${cfg.configFile} " + lib.concatStringsSep " " cfg.extraArgs;
-        Restart = "on-failure";
-        Nice = -5;
-      };
-    };
-
-    systemd.user.services.rh-kmonad-keychron-q3 = {
-      Unit = {
-        Description = "KMonad – Keychron Q3";
-        ConditionPathExists = "/dev/input/by-id/usb-Keychron_Keychron_Q3-if02-event-kbd";
-      };
-
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.kmonad}/bin/kmonad ${cfg.keychronQ3ConfigFile} " + lib.concatStringsSep " " cfg.extraArgs;
         Restart = "on-failure";
         Nice = -5;
       };

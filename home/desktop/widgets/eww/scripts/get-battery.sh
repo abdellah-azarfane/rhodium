@@ -13,10 +13,38 @@ if [[ -d "$BAT_DIR" ]]; then
     else
         CHARGING=false
     fi
-    printf '{"percentage":%s,"status":"%s","charging":%s}\n' \
-           "$CAPACITY" "$STATUS" "$CHARGING"
+
+    ICON="󰂎"
+    if [[ "$CHARGING" == "true" ]]; then
+        ICON="󰂄"
+    elif (( CAPACITY >= 95 )); then
+        ICON="󰁹"
+    elif (( CAPACITY >= 85 )); then
+        ICON="󰂂"
+    elif (( CAPACITY >= 75 )); then
+        ICON="󰂁"
+    elif (( CAPACITY >= 65 )); then
+        ICON="󰂀"
+    elif (( CAPACITY >= 55 )); then
+        ICON="󰁿"
+    elif (( CAPACITY >= 45 )); then
+        ICON="󰁾"
+    elif (( CAPACITY >= 35 )); then
+        ICON="󰁽"
+    elif (( CAPACITY >= 25 )); then
+        ICON="󰁼"
+    elif (( CAPACITY >= 15 )); then
+        ICON="󰁻"
+    elif (( CAPACITY >= 5 )); then
+        ICON="󰁺"
+    else
+        ICON="󰂎"
+    fi
+
+    printf '{"percentage":%s,"status":"%s","charging":%s,"icon":"%s"}\n' \
+           "$CAPACITY" "$STATUS" "$CHARGING" "$ICON"
 else
     # Desktop with no battery
-    echo '{"percentage":100,"status":"Unknown","charging":false}'
+    echo '{"percentage":100,"status":"Unknown","charging":false,"icon":"󰁹"}'
 fi
 

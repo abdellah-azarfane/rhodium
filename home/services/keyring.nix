@@ -6,10 +6,10 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-system-keyring;
+  cfg = config.userExtraServices.system-keyring;
 in
 {
-  options.userExtraServices.rh-system-keyring = {
+  options.userExtraServices.system-keyring = {
     enable = mkEnableOption "System keyring for GUI applications";
   };
 

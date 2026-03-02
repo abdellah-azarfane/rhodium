@@ -14,8 +14,5 @@
     "kmonad/keychron.kbd" = {
       source = ./kmonad/keychron.kbd;
     };
-    "kmonad/keychron-q3.kbd" = {
-      source = ./kmonad/keychron-q3.kbd;
-    };
   };
 }

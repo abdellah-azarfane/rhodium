@@ -64,6 +64,5 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    nerd-fonts.symbols-only # Provides "Symbols Nerd Font Mono" for consistent icon rendering
   ];
 }

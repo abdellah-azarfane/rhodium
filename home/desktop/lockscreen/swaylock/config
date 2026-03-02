@@ -4,7 +4,7 @@ ignore-empty-password
 show-failed-attempts
 
 # Background
-image=/home/abosafiya/.local/share/wallpapers/dante/wallpaper-01.jpg
+image=/home/zayron/.local/share/wallpapers/dante/wallpaper-01.jpg
 scaling=fill
 color=1a1a1aff
 
@@ -25,7 +25,7 @@ ring-ver-color=3c3c3cff
 ring-wrong-color=555555ff
 ring-clear-color=2a2a2aff
 
-# Inside states  
+# Inside states
 inside-color=1a1a1a00
 inside-ver-color=2a2a2aaa
 inside-wrong-color=3a3a3aaa

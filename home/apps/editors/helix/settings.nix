@@ -1,7 +1,6 @@
 { ... }:
 {
   programs.helix.settings = {
-    theme = "chiaroscuro";
 
     keys.normal = {
       D = [
@@ -42,7 +41,6 @@
       cursorcolumn = false;
       cursorline = true;
       default-yank-register = "+";
-      evil = true; # NOTE: Disable evil to remove vim bindings altogether
       idle-timeout = 250;
       indent-heuristic = "hybrid";
       insert-final-newline = true;

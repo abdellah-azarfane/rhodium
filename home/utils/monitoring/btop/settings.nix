@@ -1,7 +1,7 @@
-{ ... }:
+{ lib, ... }:
 {
   programs.btop.settings = {
-    color_theme = "chiaroscuro";
+    color_theme = lib.mkDefault "chiaroscuro";
     theme_background = false;
     truecolor = true;
     force_tty = false;

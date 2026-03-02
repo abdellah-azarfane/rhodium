@@ -1,5 +1,15 @@
-{ pkgs, ... }:
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib;
+let
+  cfg = config.desktop.wm.hyprland;
+in
+{
+  config = mkIf cfg.enable {
   environment.systemPackages = with pkgs; [
     # Hyprtools
     hyprpicker
@@ -29,5 +39,6 @@
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
     ];
+  };
   };
 }

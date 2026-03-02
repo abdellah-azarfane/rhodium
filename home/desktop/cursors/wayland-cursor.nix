@@ -1,18 +1,14 @@
 {
   pkgs,
-  userPreferences,
   ...
 }:
-let
-  cursorSize = userPreferences.behaviour.cursorSize;
-in
 {
   home.pointerCursor = {
     enable = true;
 
     package = pkgs.phinger-cursors;
     name = "phinger-cursors-dark";
-    size = cursorSize;
+    size = 32;
 
     # Desktops
     gtk.enable = true;

@@ -1,6 +1,6 @@
 {
   config,
-  rhodiumLib,
+  irixLib,
   ...
 }:
 let

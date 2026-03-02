@@ -1,13 +1,13 @@
 {
   config,
   pkgs,
-  rhodiumLib,
+  irixLib,
   userPreferences,
   ...
 }:
 {
-  home.file."${config.xdg.dataHome}/rhodium-utils/metadata.json".source =
-    pkgs.writeText "rhodium-utils-metadata.json" (
-      builtins.toJSON (rhodiumLib.generators.utilsMetadataGenerators userPreferences.metadata)
+  home.file."${config.xdg.dataHome}/irix-utils/metadata.json".source =
+    pkgs.writeText "irix-utils-metadata.json" (
+      builtins.toJSON (irixLib.generators.utilsMetadataGenerators userPreferences.metadata)
     );
 }

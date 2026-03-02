@@ -6,14 +6,14 @@
 }:
 with lib;
 let
-  cfg = config.userExtraServices.rh-wezterm-daemon;
+  cfg = config.userExtraServices.wezterm-daemon;
 in
 {
-  options.userExtraServices.rh-wezterm-daemon = {
+  options.userExtraServices.wezterm-daemon = {
     enable = mkEnableOption "WezTerm terminal daemon for instant startup";
   };
   config = mkIf cfg.enable {
-    systemd.user.services.rh-wezterm-daemon = {
+    systemd.user.services.wezterm-daemon = {
       Unit = {
         Description = "WezTerm terminal daemon";
         PartOf = [ "graphical-session.target" ];

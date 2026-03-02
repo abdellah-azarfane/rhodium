@@ -1,12 +1,11 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./cursor.nix
-    # ./lapce.nix
-    ./antigravity
-    ./vscodium.nix
+     ./cursor.nix
+     ./lapce.nix
     ./rstudio.nix
     ./texmaker.nix
+    ./vscodium.nix
     ./zed.nix
   ];
 }

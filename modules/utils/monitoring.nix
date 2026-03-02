@@ -3,7 +3,7 @@
   environment.systemPackages = with pkgs; [
     bottom # Better htop alternative
     btop # Better htop alternative
-    mesa-demos # OpenGL & Mesa tools (glxinfo, glxgears, etc.)
+    mesa-demos # Info for OpenGL & Mesa
     hyperfine # Command-line benchmarking tool
     nmon # System monitoring tool
     psmisc # killall, pstree, etc.

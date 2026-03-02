@@ -2,7 +2,6 @@
 {
   imports = [
     ./astal.nix
-    ./brave.nix
     ./displays.nix
     ./eww.nix
     ./firefox.nix
@@ -15,8 +14,6 @@
     ./swaybg.nix
     ./waybar.nix
     ./wezterm.nix
-    ./wifi.nix
     ./wlsunset.nix
-    ./swww.nix
   ];
 }
