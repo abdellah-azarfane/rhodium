@@ -1,4 +1,0 @@
-[[cable_channel]]
-name = "docker"
-source_command = "docker ps -a --format \"{{.ID}} {{.Names}} {{.Status}} {{.Image}}\""
-preview_command = "docker inspect {0} | jq '.[0]' 2>/dev/null || echo \"Container not found\""

@@ -1,7 +1,0 @@
-[[cable_channel]]
-name = "logs"
-source_command = '''
-fd -e log -e txt . /var/log ~/.local/share ~/.cache 2>/dev/null | \
-  grep -E '\.(log|txt)$' | sort -r | head -50
-'''
-preview_command = "tail -n 100 {} | bat -n --color=always --style=plain"

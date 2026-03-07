@@ -1,7 +1,0 @@
-[[cable_channel]]
-name = "config"
-source_command = '''
-fd -t f -e toml -e yaml -e yml -e json -e conf -e cfg -e ini \
-  . ~/.config /etc 2>/dev/null | grep -v cache | sort
-'''
-preview_command = "bat -n --color=always --style=numbers {}"

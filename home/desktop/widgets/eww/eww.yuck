@@ -1,7 +1,0 @@
-(include "./modules/audio/audio.yuck")
-(include "./modules/bar/bar.yuck")
-(include "./modules/clock/clock.yuck")
-(include "./modules/keyboard/keyboard.yuck")
-(include "./modules/network/network.yuck")
-(include "./modules/system/system.yuck")
-(include "./modules/workspaces/workspaces.yuck")

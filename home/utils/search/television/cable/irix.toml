@@ -1,4 +1,0 @@
-[[cable_channel]]
-name = "irix"
-source_command = "fd -t f . $IRIX"
-preview_command = "bat -n --color=always --style=numbers {}"

@@ -1,8 +1,0 @@
-{ ... }:
-{
-  imports = [
-    ./emulators
- #   ./prompts
-    ./multiplexers
-  ];
-}
